@@ -1,24 +1,25 @@
-# README
+# <Before-After>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+<片付け前と後の画像を投稿し、共有し合うサイトです。>
 
-Things you may want to cover:
+### サイトテーマ
+<「片付けのやる気をUpさせよう!!」>
 
-* Ruby version
+### テーマを選んだ理由
+<私自身片付けが苦手なのとズボラな性格なので片付けをやる気にならならず、部屋が散らかっていることに対して常に罪悪感を感じています。
+　そこで、写真を投稿して誰かにに見せることでやる気をあげられたらと思い、
+　同じ悩みをもつ方に向けて、片付けのやる気を上げてくれるサイトを作ろうと考えました。>
 
-* System dependencies
+### ターゲットユーザ
+<部屋の片付けが苦手な一般ユーザ>
 
-* Configuration
+### 主な利用シーン
+<片付けるモチベーションが欲しい時>
 
-* Database creation
+## 設計書
 
-* Database initialization
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/1I1M6kfyfu32btQkhNTg9Omfpyld7jX5szR7vsNUw-qY/edit?usp=sharing>
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
