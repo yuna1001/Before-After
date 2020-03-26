@@ -20,6 +20,12 @@
 
 ## 設計書
 
+### ER図
+<https://drive.google.com/file/d/1BRaPq8mt4PY_Ie3Sc0P8aA_S50fSCYqb/view?usp=sharing>
+
+### テーブル定義書
+<https://drive.google.com/file/d/1BRaPq8mt4PY_Ie3Sc0P8aA_S50fSCYqb/view?usp=sharing>
+
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1I1M6kfyfu32btQkhNTg9Omfpyld7jX5szR7vsNUw-qY/edit?usp=sharing>
 
