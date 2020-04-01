@@ -26,6 +26,12 @@
 ### テーブル定義書
 <https://drive.google.com/file/d/1BRaPq8mt4PY_Ie3Sc0P8aA_S50fSCYqb/view?usp=sharing>
 
+### ワイヤーフレーム
+<https://drive.google.com/file/d/1q57oK-bI3g_bC_JfprUmHbRFqhPwU72A/view?usp=sharing>
+
+### アプリケーション詳細設計書
+<https://docs.google.com/spreadsheets/d/1q1CaPOR39kzKRiNY1-yr9inrwQOOCUHnxhKWHDhmTIA/edit?usp=sharing>
+
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1I1M6kfyfu32btQkhNTg9Omfpyld7jX5szR7vsNUw-qY/edit?usp=sharing>
 
