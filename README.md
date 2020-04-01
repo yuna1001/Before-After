@@ -24,7 +24,7 @@
 <https://drive.google.com/file/d/1BRaPq8mt4PY_Ie3Sc0P8aA_S50fSCYqb/view?usp=sharing>
 
 ### テーブル定義書
-<https://drive.google.com/file/d/1BRaPq8mt4PY_Ie3Sc0P8aA_S50fSCYqb/view?usp=sharing>
+<https://docs.google.com/spreadsheets/d/13LnvFDdoLos1eXmgYgVxMWyIEpVEWikeYChMuf4CplQ/edit?usp=sharing>
 
 ### ワイヤーフレーム
 <https://drive.google.com/file/d/1q57oK-bI3g_bC_JfprUmHbRFqhPwU72A/view?usp=sharing>
