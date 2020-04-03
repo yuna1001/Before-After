@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_042150) do
-
-  create_table "after_images", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.string "after_postimage_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "before_images", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.string "before_postimage_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2020_04_03_035303) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
