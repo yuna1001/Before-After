@@ -1,0 +1,2 @@
+class AfterImage < ApplicationRecord
+end
