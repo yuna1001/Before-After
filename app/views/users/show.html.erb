@@ -1,5 +1,10 @@
 <h1>Users#show</h1>
-<%= attachment_image_tag @user, :image, fallback: "noimage.png" %>
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<%= attachment_image_tag @user, :profile_image, fallback: "noimage.png" %>
 <%= @user.name %>
 <%= @user.body %>
 

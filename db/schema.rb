@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_184940) do
     t.datetime "remember_created_at"
     t.string "name", default: "", null: false
     t.text "body", default: "", null: false
-    t.string "image_id"
+    t.string "profile_image_id"
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
