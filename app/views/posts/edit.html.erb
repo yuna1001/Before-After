@@ -1,2 +1,18 @@
 <h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+
+<%# エラーメッセージ %>
+<% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラーがでいます。
+  <%= @post.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%# 編集フォーム %>
+<%= form_for(@post) do |f| %>
+  <%= f.attachment_field :before_image %>
+  <%= f.attachment_field :after_image %>
+  <h4>説明</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '投稿編集' %>
+<% end %>
