@@ -1,0 +1,19 @@
+<h4>edit</h4>
+
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーがでいます。
+  <%= @user.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= form_for(@user) do |f| %>
+  <%= f.attachment_field :profile_image %> 
+  <h4>ユーザ名</h4>
+  <%= f.text_field :name %>
+  <h4>メールアドレス</h4>
+  <%= f.email_field :email, autocomplete: "email" %>
+  <h4>説明</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Update User' %>
+<% end %>
