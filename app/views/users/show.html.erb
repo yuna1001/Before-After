@@ -10,7 +10,7 @@
 <%= @user.name %>
 <%= @user.body %>
 
-<% if @user.id == current_user.id %>
+<% if @user.id === current_user.id %>
   <%= link_to "編集", edit_user_path %>
 <% end %>
 <%# ここまで %>
@@ -18,7 +18,7 @@
 <%# ここからユーザの投稿一覧 %>
 <% @user.posts.each do |post| %>
 
-  <div class= "post-item">
+  <div class="post-item">
 
     <%# ここからbefore画像 %>
     <%= link_to post_path(post.id) do %>
@@ -44,6 +44,6 @@
     <%# ここまで %>
 
   </div>
-  
+
 <% end %> 
 <%# ここまで %>
