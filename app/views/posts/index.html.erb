@@ -9,7 +9,7 @@
     <%= attachment_image_tag post.user, :profile_image,
      :fill, 10, 10, fallback: "noimage.png", size:'10x10', class: "profile_image" %>
     <%# プロフィール画像(cssにてhoverすると表示されるように設定) %>
-    <%= post.user.name, class: "profile_image" %>
+    <%= post.user.name %>
     <%# ユーザ名(cssにてhoverすると表示されるように設定) %>
   </div>
 <% end %> 
