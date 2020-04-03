@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_one :after_image, dependent: :destroy
-  has_one :before_image, dependent: :destroy
+
+  attachment :before_image
+  attachment :after_image
 
   validates :body, presence: true
 
