@@ -1,2 +1,17 @@
 <h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
+<% @posts.each do |post| %>
+  <div class= "post-item">
+    <%= attachment_image_tag post, :before_image, :fill, 50, 30 %>
+    <%# before画像 %>
+    <%= attachment_image_tag post, :after_image, :fill, 50, 30, class: "before_image" %>
+    <%# after画像(cssにてhoverすると表示されるように設定) %>
+    <%= attachment_image_tag post.user, :profile_image,
+     :fill, 10, 10, fallback: "noimage.png", size:'10x10', class: "profile_image" %>
+    <%# プロフィール画像(cssにてhoverすると表示されるように設定) %>
+    <%= post.user.name, class: "profile_image" %>
+    <%# ユーザ名(cssにてhoverすると表示されるように設定) %>
+  </div>
+<% end %> 
+
+<%= link_to "投稿",new_post_path, class: "post_btn" %>
