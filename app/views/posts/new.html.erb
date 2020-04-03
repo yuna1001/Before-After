@@ -1,14 +1,8 @@
 <h1>Posts#new</h1>
 
 <%= form_for @post do |f| %>
-
-  <%= f.fields_for @before do |before| %>
-    <%= before.attachment_field :before_postimage %>
-  <% end %>
-
-  <%= f.fields_for @after do |after| %>
-    <%= after.attachment_field :after_postimage %>
-  <% end %>
+  <%= f.attachment_field :before_image %>
+  <%= f.attachment_field :after_image %>
 
   <h4>説明</h4>
   <%= f.text_area :body %>

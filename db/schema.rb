@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2020_04_03_042150) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.text "body", null: false
+    t.string "before_image_id", null: false
+    t.string "after_image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

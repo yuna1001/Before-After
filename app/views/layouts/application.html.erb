@@ -20,7 +20,7 @@
           <li><%= link_to "人気" %></li>
           <li><%= link_to "新着" %></li>
           <li><%= link_to "Mypage" %></li>
-          <li><%= link_to "Logout", destroy_user_session_path %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         </ul>
       <% else %>
         <ul>
