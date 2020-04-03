@@ -1,9 +1,11 @@
 <h1>Users#show</h1>
 
+<%# successメッセージを表示 %>
 <% if flash[:notice] %>
   <p><%= flash[:notice] %></p>
 <% end %>
 
+<%# ここからユーザ情報 %>
 <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png" %>
 <%= @user.name %>
 <%= @user.body %>
@@ -11,4 +13,37 @@
 <% if @user.id == current_user.id %>
   <%= link_to "編集", edit_user_path %>
 <% end %>
+<%# ここまで %>
 
+<%# ここからユーザの投稿一覧 %>
+<% @user.posts.each do |post| %>
+
+  <div class= "post-item">
+
+    <%# ここからbefore画像 %>
+    <%= link_to post_path(post.id) do %>
+      <%= attachment_image_tag post, :before_image, :fill, 50, 30 %>
+    <% end %>
+    <%# ここまで %>
+
+    <%# ここからafter画像(cssにてhoverすると表示されるように設定) %>
+    <%= link_to post_path(post.id) do %>
+      <%= attachment_image_tag post, :after_image, :fill, 50, 30, class: "before_image" %>
+    <% end %>
+    <%# ここまで %>
+
+    <%# ここからプロフィール画像(cssにてhoverすると表示されるように設定) %>
+    <%= link_to user_path(@user.id) do %>
+      <%= attachment_image_tag post.user, :profile_image,
+       :fill, 10, 10, fallback: "noimage.png", size:'10x10', class: "profile_image" %>
+    <% end %>
+    <%# ここまで %>
+
+    <%# ここからユーザ名(cssにてhoverすると表示されるように設定) %>
+    <%= @user.name %>
+    <%# ここまで %>
+
+  </div>
+  
+<% end %> 
+<%# ここまで %>
