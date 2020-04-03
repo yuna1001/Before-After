@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>BeforeAfter</title>
     <%= csrf_meta_tags %>
@@ -10,6 +11,30 @@
   </head>
 
   <body>
+    
+    <header>
+      <% if user_signed_in? %>
+        <ul>
+          <li><%= link_to "このサイトについて" %></li>
+          <li><%= link_to "一覧" %></li>
+          <li><%= link_to "人気" %></li>
+          <li><%= link_to "新着" %></li>
+          <li><%= link_to "Mypage" %></li>
+          <li><%= link_to "Logout", destroy_user_session_path %></li>
+        </ul>
+      <% else %>
+        <ul>
+          <li><%= link_to "このサイトについて" %></li>
+          <li><%= link_to "一覧" %></li>
+          <li><%= link_to "人気" %></li>
+          <li><%= link_to "新着" %></li>
+          <li><%= link_to "Signup", new_user_registration_path %></li>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        </ul>
+      <% end %>
+    </header>
+
     <%= yield %>
   </body>
+
 </html>
