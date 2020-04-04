@@ -5,15 +5,30 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
-<%# ここからユーザ情報詳細 %>
+<%# ユーザ情報詳細 %>
 <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png" %>
 <%= @user.name %>
 <%= @user.body %>
-<%# ここまで %>
 
 <%# カレントユーザのみ編集リンク表示 %>
 <% if @user.id === current_user.id %>
   <%= link_to "編集", edit_user_path %>
+<% end %>
+
+<%# フォローボタン %>
+<% if @user.id != current_user.id %>
+  <% if current_user.following?(@user) %>
+    <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+             html: { method: :delete }) do |f| %>
+      <%= f.submit "Unfollow" %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.active_relationships.build) do |f| %>
+      <%= hidden_field_tag :followed_id, @user.id %>
+      <%= f.submit "Follow" %>
+    <% end %>
+  <% end %>
+  </div>
 <% end %>
 
 <%# ここからユーザの投稿一覧 %>
@@ -23,13 +38,13 @@
 
     <%# ここからbefore画像 %>
     <%= link_to post_path(post.id) do %>
-      <%= attachment_image_tag post, :before_image, :fill, 50, 30 %>
+      <%= attachment_image_tag post, :before_image, :fill, 400, 400 %>
     <% end %>
     <%# ここまで %>
 
     <%# ここからafter画像(cssにてhoverすると表示されるように設定) %>
     <%= link_to post_path(post.id) do %>
-      <%= attachment_image_tag post, :after_image, :fill, 50, 30, class: "before_image" %>
+      <%= attachment_image_tag post, :after_image, :fill, 400, 400, class: "before_image" %>
     <% end %>
     <%# ここまで %>
 
@@ -40,9 +55,8 @@
     <% end %>
     <%# ここまで %>
 
-    <%# ここからユーザ名(cssにてhoverすると表示されるように設定) %>
+    <%# ユーザ名(cssにてhoverすると表示されるように設定) %>
     <%= @user.name %>
-    <%# ここまで %>
 
   </div>
 
