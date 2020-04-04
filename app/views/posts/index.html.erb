@@ -28,6 +28,14 @@
     <%= post.user.name %>
     <%# ここまで %>
 
+    <%# いいねボタン %>
+    <% if post.favorited_by?(current_user) %>
+      <%= link_to "いいね", post_favorites_path(post), method: :delete %>
+    <% else %>
+      <%= link_to "いいね", post_favorites_path(post), method: :post %>
+    <% end %>
+    <%= post.favorites.count %>けん
+
   </div>
 
 <% end %> 
