@@ -1,7 +1,17 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.all
+    if params[:ranking]
+      @posts = Post.find(Favorite.group(:post_id).order('count(post_id) desc'). pluck(:post_id))
+      #Favorite(いいねのレコード)を"post_id"(投稿ID)ごとにgroup分けを行う。
+      #orderで"post_id"が多い順に並び替えを行う。
+      #pluckでFavoriteのレコードから"post_id"カラムだけを取り出す。
+    elsif params[:new]
+      @posts = Post.all.order(created_at: "DESC")
+      #"created_at"カラムを昇順(DESC)に並び替える。
+    else
+      @posts = Post.all.order(created_at: "DESC")
+    end
   end
 
   def show
