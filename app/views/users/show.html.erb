@@ -5,15 +5,16 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
-<%# ここからユーザ情報 %>
+<%# ここからユーザ情報詳細 %>
 <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png" %>
 <%= @user.name %>
 <%= @user.body %>
+<%# ここまで %>
 
+<%# カレントユーザのみ編集リンク表示 %>
 <% if @user.id === current_user.id %>
   <%= link_to "編集", edit_user_path %>
 <% end %>
-<%# ここまで %>
 
 <%# ここからユーザの投稿一覧 %>
 <% @user.posts.each do |post| %>
@@ -46,4 +47,3 @@
   </div>
 
 <% end %> 
-<%# ここまで %>

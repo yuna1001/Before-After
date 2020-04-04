@@ -1,1 +1,20 @@
 <h4>show</h4>
+
+<%# before画像 %>
+<%= attachment_image_tag @post, :before_image, :fill, 100, 100 %>
+<%# after画像(クリックで表示させる) %>
+<%= attachment_image_tag @post, :after_image, :fill, 100, 100 %>
+<%# ここからプロフィール画像(ユーザ詳細ページへリンク) %>
+<%= link_to user_path(@post.user.id) do %>
+  <%= attachment_image_tag @post.user, :profile_image,
+   :fill, 30, 30, fallback: "noimage.png", size:'10x10' %>
+<% end %>
+<%# ここまで %>
+<%= @post.user.name %>
+<%= @post.body %>
+
+<%# カレントユーザのみ以下表示 %>
+<% if @post.user.id === current_user.id %>
+  <%= link_to "編集", edit_post_path %>
+  <%= link_to "削除", post_path(@post.id), method: :delete, data: { confirm: '削除しますか？' } %>
+<% end %>
