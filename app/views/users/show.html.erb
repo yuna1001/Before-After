@@ -10,24 +10,28 @@
 <h2><%= @user.name %></h2>
 
 <%# カレントユーザのみ編集リンク表示 %>
-<% if @user.id === current_user.id %>
-  <%= link_to "編集", edit_user_path %>
+<% if user_signed_in? %>
+  <% if @user.id === current_user.id %>
+    <%= link_to "編集", edit_user_path %>
+  <% end %>
 <% end %>
 
 <%# フォローボタン %>
-<% if @user.id != current_user.id %>
-  <% if current_user.following?(@user) %>
-    <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
-             html: { method: :delete }) do |f| %>
-      <%= f.submit "Unfollow" %>
+<% if user_signed_in? %>
+  <% if @user.id != current_user.id %>
+    <% if current_user.following?(@user) %>
+      <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+               html: { method: :delete }) do |f| %>
+        <%= f.submit "Unfollow" %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.active_relationships.build) do |f| %>
+        <%= hidden_field_tag :followed_id, @user.id %>
+        <%= f.submit "Follow" %>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= form_for(current_user.active_relationships.build) do |f| %>
-      <%= hidden_field_tag :followed_id, @user.id %>
-      <%= f.submit "Follow" %>
-    <% end %>
+    </div>
   <% end %>
-  </div>
 <% end %>
 
 <%# フォロー、フォロワー一覧へのリンク %>
