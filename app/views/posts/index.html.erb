@@ -1,41 +1,48 @@
-<h1>Posts#index</h1>
+<div id="posts-index">
 
-<%# 投稿一覧を表示 %>
-<% @posts.each do |post| %>
+  <div class="posts-box">
 
-  <div class="post-item">
+    <%# 投稿一覧を表示 %>
+    <% @posts.each do |post| %>
+      <div class="posts-box-item">
+        <%# ここからbefore画像 %>
+        <%= link_to post_path(post.id) do %>
+          <%= attachment_image_tag post, :before_image, :fill, 420, 420 %>
+        <% end %>
+        <%# ここまで %>
 
-    <%# ここからbefore画像 %>
-    <%= link_to post_path(post.id) do %>
-      <%= attachment_image_tag post, :before_image, :fill, 400, 400 %>
+        <%# ここからafter画像(cssにてhoverすると表示されるように設定) %>
+        <%= link_to post_path(post.id) do %>
+          <%= attachment_image_tag post, :after_image, :fill, 420, 420, class: "posts-box-item-after" %>
+        <% end %>
+        <%# ここまで %>
+
+        <%# ここからプロフィール画像(cssにてhoverすると表示されるように設定) %>
+        <%= link_to user_path(post.user.id) do %>
+          <%= attachment_image_tag post.user, :profile_image,
+           :fill, 50, 50, fallback: "noimage.png", size:'50x50', class: "profile-image" %>
+        <% end %>
+        <%# ここまで %>
+
+        <%# ここからユーザ名(cssにてhoverすると表示されるように設定) %>
+        <span><%= post.user.name %></span>
+        <%# ここまで %>
+
+        <%# いいねボタン %>
+        <% if post.favorited_by?(current_user) %>
+          <%= link_to post_favorites_path(post), method: :delete do %>
+            <%= image_tag "favorite.png", class: "favorite-image" %>
+          <% end %>
+        <% else %>
+          <%= link_to post_favorites_path(post), method: :post do %>
+            <%= image_tag "unfavorite.png", class: "favorite-image" %>
+          <% end %>
+        <% end %>
+        <%= post.favorites.count %>けん
+      </div>
     <% end %>
-    <%# ここまで %>
-
-    <%# ここからafter画像(cssにてhoverすると表示されるように設定) %>
-    <%= link_to post_path(post.id) do %>
-      <%= attachment_image_tag post, :after_image, :fill, 400, 400, class: "before_image" %>
-    <% end %>
-    <%# ここまで %>
-
-    <%# ここからプロフィール画像(cssにてhoverすると表示されるように設定) %>
-    <%= link_to user_path(post.user.id) do %>
-      <%= attachment_image_tag post.user, :profile_image,
-       :fill, 10, 10, fallback: "noimage.png", size:'10x10', class: "profile_image" %>
-    <% end %>
-    <%# ここまで %>
-
-    <%# ここからユーザ名(cssにてhoverすると表示されるように設定) %>
-    <%= post.user.name %>
-    <%# ここまで %>
-
-    <%# いいねボタン %>
-    <% if post.favorited_by?(current_user) %>
-      <%= link_to "いいね", post_favorites_path(post), method: :delete %>
-    <% else %>
-      <%= link_to "いいね", post_favorites_path(post), method: :post %>
-    <% end %>
-    <%= post.favorites.count %>けん
+    <%# ここまで投稿一覧表示 %>
 
   </div>
 
-<% end %> 
+</div>
