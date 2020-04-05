@@ -1,26 +1,31 @@
 <div id="posts-show">
 
   <%# before画像 %>
-  <div class="posts-image", id="posts-image-before" onclick="changeAfter()" >
+  <div class="post-image", id="posts-image-before" onclick="changeAfter()" >
     <span>Before</span>
     <%= attachment_image_tag @post, :before_image, :fill, 600, 600 %>
   </div>
 
   <%# after画像(クリックで表示させる) %>
-  <div class="posts-image", id="posts-image-after" onclick="changeBefore()" style= "display: none;" >
+  <div class="post-image", id="posts-image-after" onclick="changeBefore()" style= "display: none;" >
     <span>After</span>
     <%= attachment_image_tag @post, :after_image, :fill, 600, 600 %>
   </div>
 
-  <%# ここからプロフィール画像(ユーザ詳細ページへリンク) %>
-  <%= link_to user_path(@post.user.id) do %>
-    <%= attachment_image_tag @post.user, :profile_image,
-     :fill, 30, 30, fallback: "noimage.png", size:'10x10' %>
-  <% end %>
-  <%# ここまで %>
+  <div class="post-user-box">
+    <%# プロフィール画像(ユーザ詳細ページへリンク) %>
+      <%= link_to user_path(@post.user.id) do %>
+        <%= attachment_image_tag @post.user, :profile_image,
+         :fill, 50, 50, fallback: "noimage.png", size:'50x50', class: "post-user-box-image" %>
+      <% end %>    
+    <div class="post-user-box-name">
+      <h2><%= @post.user.name %></h2>
+    </div>
+  </div>
 
-  <h2><%= @post.user.name %></h2>
-  <p><%= @post.body %></p>
+  <div class="post-introduction">
+    <p><%= @post.body %></p>
+  </div>
 
   <%# カレントユーザのみ以下表示 %>
   <% if user_signed_in? %>
