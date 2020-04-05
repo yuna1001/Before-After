@@ -14,3 +14,17 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+function changeAfter(){
+  var before = document.getElementById('posts-image-before');
+  var after = document.getElementById('posts-image-after');
+  before.style.display = "none";
+  after.style.display = "block";
+}
+
+function changeBefore(){
+  var after = document.getElementById('posts-image-after');
+  var before = document.getElementById('posts-image-before');
+  after.style.display = "none";
+  before.style.display = "block";
+}
