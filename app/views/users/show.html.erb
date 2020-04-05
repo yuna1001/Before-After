@@ -1,83 +1,103 @@
-<h1>Users#show</h1>
+<div id="users-show">
 
-<%# successメッセージを表示 %>
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
-
-<%# プロフィール画像とユーザ名 %>
-<%= attachment_image_tag @user, :profile_image, fallback: "noimage.png" %>
-<h2><%= @user.name %></h2>
-
-<%# カレントユーザのみ編集リンク表示 %>
-<% if user_signed_in? %>
-  <% if @user.id === current_user.id %>
-    <%= link_to "編集", edit_user_path %>
+  <%# successメッセージを表示 %>
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
   <% end %>
-<% end %>
 
-<%# フォローボタン %>
-<% if user_signed_in? %>
-  <% if @user.id != current_user.id %>
-    <% if current_user.following?(@user) %>
-      <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
-               html: { method: :delete }) do |f| %>
-        <%= f.submit "Unfollow" %>
-      <% end %>
-    <% else %>
-      <%= form_for(current_user.active_relationships.build) do |f| %>
-        <%= hidden_field_tag :followed_id, @user.id %>
-        <%= f.submit "Follow" %>
-      <% end %>
-    <% end %>
+  <%# プロフィール画像とユーザ名 %>
+  <div class="profile-box">
+
+    <div class="profile-box-image">
+      <%= attachment_image_tag @user, :profile_image,
+       fallback: "noimage.png", class: "profile-box-image-item" %>
     </div>
-  <% end %>
-<% end %>
+    <div class="profile-box-name">
+      <h2><%= @user.name %></h2>
+    </div>
 
-<%# フォロー、フォロワー一覧へのリンク %>
-<div class="follow-user-count-box">
-  <h4>
-    <%= link_to following_user_path(@user.id) do %>
-      フォロー<%= @user.following.count %>
-    <% end %>
-  </h4>
-  <h4>
-    <%= link_to followers_user_path(@user.id) do %>
-      フォロワー<%= @user.followers.count %>
-    <% end %>
-  </h4>
-</div>
+    <%# カレントユーザのみ編集リンク表示 %>
+    <div class="profile-box-edit-btn">
+      <% if user_signed_in? %>
+        <% if @user.id === current_user.id %>
+          <%= link_to "編集", edit_user_path %>
+        <% end %>
+      <% end %>
+    </div>
+    <%# フォローボタン %>
+    <div class="profile-box-follow-btn">
+      <% if user_signed_in? %>
+        <% if @user.id != current_user.id %>
+          <% if current_user.following?(@user) %>
+            <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+                     html: { method: :delete }) do |f| %>
+              <%= f.submit "Unfollow" %>
+            <% end %>
+          <% else %>
+            <%= form_for(current_user.active_relationships.build) do |f| %>
+              <%= hidden_field_tag :followed_id, @user.id %>
+              <%= f.submit "Follow" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
 
-<%# ユーザの紹介文 %>
-<p><%= @user.body %></p>
+    <%# フォロー、フォロワー一覧へのリンク %>
+    <div class="profile-box-follow-counter">
+      <h4>
+        <%= link_to following_user_path(@user.id) do %>
+          フォロー<%= @user.following.count %>
+        <% end %>
+      </h4>
+      <h4>
+        <%= link_to followers_user_path(@user.id) do %>
+          フォロワー<%= @user.followers.count %>
+        <% end %>
+      </h4>
+    </div>
 
-<%# ここからユーザの投稿一覧 %>
-<% @user.posts.each do |post| %>
-
-  <div class="post-item">
-
-    <%# ここからbefore画像 %>
-    <%= link_to post_path(post.id) do %>
-      <%= attachment_image_tag post, :before_image, :fill, 400, 400 %>
-    <% end %>
-    <%# ここまで %>
-
-    <%# ここからafter画像(cssにてhoverすると表示されるように設定) %>
-    <%= link_to post_path(post.id) do %>
-      <%= attachment_image_tag post, :after_image, :fill, 400, 400, class: "before_image" %>
-    <% end %>
-    <%# ここまで %>
-
-    <%# ここからプロフィール画像(cssにてhoverすると表示されるように設定) %>
-    <%= link_to user_path(@user.id) do %>
-      <%= attachment_image_tag post.user, :profile_image,
-       :fill, 10, 10, fallback: "noimage.png", size:'10x10', class: "profile_image" %>
-    <% end %>
-    <%# ここまで %>
-
-    <%# ユーザ名(cssにてhoverすると表示されるように設定) %>
-    <%= @user.name %>
+    <%# ユーザの紹介文 %>
+    <div class="profile-box-user-introduction">
+      <p><%= @user.body %></p>
+    </div>
 
   </div>
 
-<% end %> 
+  <%# ここからユーザの投稿一覧 %>
+  <div class="posts-box">
+    <% @user.posts.each do |post| %>
+      <div class="posts-box-item">
+
+        <%# ここからbefore画像 %>
+        <%= link_to post_path(post.id) do %>
+          <%= attachment_image_tag post, :before_image, :fill, 420, 420 %>
+        <% end %>
+        <%# ここまで %>
+
+        <%# ここからafter画像(cssにてhoverすると表示されるように設定) %>
+        <%= link_to post_path(post.id) do %>
+          <%= attachment_image_tag post, :after_image, :fill, 420, 420, class: "posts-box-item-after" %>
+        <% end %>
+        <%# ここまで %>
+
+        <%# ここからプロフィール画像(cssにてhoverすると表示されるように設定) %>
+        <%= link_to user_path(@user.id) do %>
+          <%= attachment_image_tag post.user, :profile_image,
+           :fill, 10, 10, fallback: "noimage.png", size:'50x50', class: "profile-image" %>
+        <% end %>
+        <%# ここまで %>
+
+        <%# ユーザ名(cssにてhoverすると表示されるように設定) %>
+        <span><%= @user.name %></span>
+
+        <%# いいねボタン %>
+        <div id="favorites_buttons_<%= post.id %>">
+          <%= render partial: 'favorites/favorite', locals: { post: post} %>
+        </div>
+
+      </div>
+    <% end %> 
+  </div>
+
+</div>

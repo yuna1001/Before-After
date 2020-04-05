@@ -1,0 +1,117 @@
+#users-show{
+
+
+  .profile-box-image{
+    width: 300px;
+    margin: 0 auto;
+
+    &-item{
+      border-radius: 150px;
+    }
+
+  }
+
+  .profile-box-name{
+    text-align: center;
+  }
+
+  .profile-box-follow-counter{
+    display: flex;
+    margin: 0 auto;
+    width: 300px;
+
+    h4{
+      margin: 30px;
+    }
+
+  }
+
+  .posts-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 30px 50px 30px 50px;
+
+    &::after{
+      content:"";
+      display: block;
+      width: 420px;
+      }
+
+    .posts-box-item{
+      width: 420px;
+      height: 420px;
+      position: relative;
+      margin-bottom: 60px;
+      filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+
+      .posts-box-item-after{
+        opacity: 0;
+        transition: 0.5s;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+
+        &:hover{
+          opacity: 1;
+        }
+      }
+
+      .profile-image{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        opacity: 0;
+        transition: 0.5s;
+        border-radius: 30px;
+        filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+
+        &:hover{
+          border-radius: 0px;
+        }
+
+      }
+
+      &:hover .profile-image{
+        opacity: 1;
+      }
+
+      span{
+        position: absolute;
+        top: 37px;
+        left: 70px;
+        opacity: 0;
+        transition: 0.5s;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 1px 2px 3px #808080; 
+      } 
+     
+      &:hover span{
+        opacity: 1;
+      }
+
+      .favorite-image{
+        position: absolute;
+        top: 85%;
+        left: 85%;
+        opacity: 0;
+        transition: 0.5s;
+        filter: drop-shadow(8px 8px 8px rgba(0,0,0,0.6));
+        width: 40px;
+
+        &:hover{
+          width: 45px;
+        }
+
+      }
+
+      &:hover .favorite-image{
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+}
