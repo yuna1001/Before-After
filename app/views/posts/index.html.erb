@@ -29,16 +29,10 @@
         <%# ここまで %>
 
         <%# いいねボタン %>
-        <% if post.favorited_by?(current_user) %>
-          <%= link_to post_favorites_path(post), method: :delete do %>
-            <%= image_tag "favorite.png", class: "favorite-image" %>
-          <% end %>
-        <% else %>
-          <%= link_to post_favorites_path(post), method: :post do %>
-            <%= image_tag "unfavorite.png", class: "favorite-image" %>
-          <% end %>
-        <% end %>
-        <%= post.favorites.count %>けん
+        <div id="favorites_buttons_<%= post.id %>">
+          <%= render partial: 'favorites/favorite', locals: { post: post} %>
+        </div>
+
       </div>
     <% end %>
     <%# ここまで投稿一覧表示 %>
