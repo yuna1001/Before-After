@@ -5,10 +5,9 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
-<%# ユーザ情報詳細 %>
+<%# プロフィール画像とユーザ名 %>
 <%= attachment_image_tag @user, :profile_image, fallback: "noimage.png" %>
-<%= @user.name %>
-<%= @user.body %>
+<h2><%= @user.name %></h2>
 
 <%# カレントユーザのみ編集リンク表示 %>
 <% if @user.id === current_user.id %>
@@ -30,6 +29,23 @@
   <% end %>
   </div>
 <% end %>
+
+<%# フォロー、フォロワー一覧へのリンク %>
+<div class="follow-user-count-box">
+  <h4>
+    <%= link_to following_user_path(@user.id) do %>
+      フォロー<%= @user.following.count %>
+    <% end %>
+  </h4>
+  <h4>
+    <%= link_to followers_user_path(@user.id) do %>
+      フォロワー<%= @user.followers.count %>
+    <% end %>
+  </h4>
+</div>
+
+<%# ユーザの紹介文 %>
+<p><%= @user.body %></p>
 
 <%# ここからユーザの投稿一覧 %>
 <% @user.posts.each do |post| %>
