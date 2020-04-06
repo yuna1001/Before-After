@@ -18,8 +18,18 @@
         <ul>
           <li><%= link_to "このサイトについて" %></li>
           <li><%= link_to "一覧", posts_path %></li>
-          <li><%= link_to "人気", posts_path %></li>
-          <li><%= link_to "新着", posts_path %></li>
+          <li>
+            <%= form_tag(posts_path, method: :get) do |f| %>
+              <%= hidden_field_tag :ranking %>
+              <%= submit_tag "人気" %>
+            <% end %>
+          </li>
+          <li>
+            <%= form_tag(posts_path, method: :get) do |f| %>
+              <%= hidden_field_tag :new %>
+              <%= submit_tag "新着" %>
+            <% end %>
+          </li>
           <li><%= link_to "Mypage", user_path(current_user.id) %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         </ul>
@@ -28,7 +38,12 @@
         <ul>
           <li><%= link_to "このサイトについて" %></li>
           <li><%= link_to "一覧", posts_path %></li>
-          <li><%= link_to "人気", posts_path %></li>
+          <li>
+            <%= form_tag(posts_path, method: :get) do |f| %>
+              <%= hidden_field_tag :ranking %>
+              <%= submit_tag "人気" %>
+            <% end %>
+          </li>
           <li><%= link_to "新着", posts_path %></li>
           <li><%= link_to "Signup", new_user_registration_path %></li>
           <li><%= link_to "Login", new_user_session_path %></li>
@@ -44,3 +59,7 @@
   </body>
 
 </html>
+
+
+
+
