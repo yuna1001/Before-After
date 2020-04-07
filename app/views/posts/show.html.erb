@@ -1,5 +1,10 @@
 <div id="posts-show">
 
+  <%# successメッセージを表示 %>
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+
   <%# before画像 %>
   <div class="post-image", id="posts-image-before" onclick="changeAfter()" >
     <span>Before</span>
