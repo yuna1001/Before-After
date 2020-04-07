@@ -16,15 +16,23 @@
 //= require_tree .
 
 function changeAfter(){
-  var before = document.getElementById('posts-image-before');
-  var after = document.getElementById('posts-image-after');
+	var before = document.getElementById('posts-before');
+	var after = document.getElementById('posts-after');
+  var beforeimage = document.getElementById('posts-image-before');
+  var afterimage = document.getElementById('posts-image-after');
   before.style.display = "none";
   after.style.display = "block";
+  beforeimage.style.display = "none";
+  afterimage.style.display = "block";
 }
 
 function changeBefore(){
-  var after = document.getElementById('posts-image-after');
-  var before = document.getElementById('posts-image-before');
+	var after = document.getElementById('posts-after');
+	var before = document.getElementById('posts-before');
+  var afterimage = document.getElementById('posts-image-after');
+  var beforeimage = document.getElementById('posts-image-before');
   after.style.display = "none";
   before.style.display = "block";
+  afterimage.style.display = "none";
+  beforeimage.style.display = "block";
 }

@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     else
       user = User.find(current_user.id)
       following_users = user.following
-      @posts = Post.where(user_id: following_users).order("created_at DESC")
+      @posts = Post.where(user_id: following_users ).order("created_at DESC")
       #フォローしているユーザの投稿のみを表示させる機能。(タイムライン)
       #Postレコードの"user_id"カラムからfollowing_users(フォロー中ユーザ)の投稿だけを取り出し、昇順(DESC)に並び替える。
     end
