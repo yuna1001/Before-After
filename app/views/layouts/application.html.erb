@@ -58,8 +58,13 @@
     <%= yield %>
 
     <%# 各ページ右下に配置してある投稿ボタン %>
-    <%= link_to "投稿",new_post_path, class: "post_btn" %>
-
+    <div class="post-new">
+      <div class="post-new-btn">
+        <%= link_to new_post_path do %>
+          <%= image_tag "camera.png", class: "post-new-image" %>
+        <% end %>
+      </div>
+    </div>
   </body>
 
 </html>
