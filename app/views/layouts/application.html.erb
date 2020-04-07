@@ -13,46 +13,49 @@
   <body>
     
     <header>
-      <% if user_signed_in? %>
       <%# ログインしているユーザ %>
-        <ul>
-          <li><%= link_to "このサイトについて" %></li>
-          <li><%= link_to "タイムライン", posts_path %></li>
-          <li>
-            <%= form_tag(posts_path, method: :get) do |f| %>
-              <%= hidden_field_tag :ranking %>
-              <%= submit_tag "人気" %>
-            <% end %>
-          </li>
-          <li>
-            <%= form_tag(posts_path, method: :get) do |f| %>
-              <%= hidden_field_tag :new %>
-              <%= submit_tag "新着" %>
-            <% end %>
-          </li>
-          <li><%= link_to "Mypage", user_path(current_user.id) %></li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-        </ul>
+      <% if user_signed_in? %>
+        <nav>
+          <ul class="nav-box-about">
+            <li class="nav-box-about-item"><%= link_to "このサイトについて" %></li>
+          </ul>
+          <ul class="nav-box-posts">
+            <li class="nav-box-posts-item"><%= link_to "タイムライン",
+                posts_path, class: "nav-box-posts-item-link" %>
+            </li>
+            <li class="nav-box-posts-item">
+              <%= link_to "人気", posts_path(ranking: "params"), class: "nav-box-posts-item-link" %>
+            </li>
+            <li class="nav-box-posts-item">
+              <%= link_to "新着", posts_path(new: "params"), class: "nav-box-posts-item-link" %>
+            </li>
+          </ul>
+          <ul class="nav-box-user">
+            <li class="nav-box-user-item"><%= link_to "Mypage",
+                user_path(current_user.id), class: "nav-box-user-item-btn" %>
+            </li>
+            <li class="nav-box-user-item"><%= link_to "Logout", 
+                destroy_user_session_path, method: :delete, class: "nav-box-user-item-btn" %>
+            </li>
+          </ul>
+        </nav>
       <% else %>
-      <%# ログインしていないユーザ %>
-        <ul>
-          <li><%= link_to "このサイトについて" %></li>
-          <li>
-            <%= form_tag(posts_path, method: :get) do |f| %>
-              <%= hidden_field_tag :ranking %>
-              <%= submit_tag "人気" %>
-            <% end %>
-          </li>
-          <li>
-            <%= form_tag(posts_path, method: :get) do |f| %>
-              <%= hidden_field_tag :new %>
-              <%= submit_tag "新着" %>
-            <% end %>
-          </li>
-          <li><%= link_to "Signup", new_user_registration_path %></li>
-          <li><%= link_to "Login", new_user_session_path %></li>
-        </ul>
+        <%# ログインしていないユーザ %>
+        <nav>
+          <ul class="nav-box">
+            <li class="nav-box-item-about-link"><%= link_to "このサイトについて" %></li>
+            <li class="nav-box-item">
+              <%= link_to "人気", posts_path(ranking: "params") %>
+            </li>
+            <li class="nav-box-item">
+              <%= link_to "新着", posts_path(new: "params") %>
+            </li>
+            <li class="nav-box-item-user-link"><%= link_to "Signup", new_user_registration_path %></li>
+            <li class="nav-box-item-user-link"><%= link_to "Login", new_user_session_path %></li>
+          </ul>
+        </nav>
       <% end %>
+
     </header>
 
     <%= yield %>

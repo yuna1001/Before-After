@@ -1,11 +1,15 @@
 <% if user_signed_in? %>
   <% if post.favorited_by?(current_user) %>
-    <%= post.favorites.count %>
+    <div class="favorite-counter">
+      <%= post.favorites.count %>
+    </div>
     <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
       <%= image_tag "favorite.png", class: "favorite-image" %>
     <% end %>
   <% else %>
-    <%= post.favorites.count %>
+    <div class="favorite-counter">
+      <%= post.favorites.count %>
+    </div>
     <%= link_to post_favorites_path(post), method: :post, remote: true do %>
       <%= image_tag "unfavorite.png", class: "favorite-image" %>
     <% end %>
