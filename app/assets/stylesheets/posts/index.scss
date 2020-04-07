@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 30px 50px 30px 50px;
-    
+
     &::after{
       content:"";
       display: block;
@@ -59,7 +59,7 @@
         font-weight: bold;
         color: #fff;
         text-shadow: 1px 2px 3px #808080; 
-      } 
+      }
      
       &:hover span{
         opacity: 1;

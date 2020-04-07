@@ -1,7 +1,30 @@
 #posts-show{
-  .posts-image{
+
+  .post-image{
     width: 600px;
-    height: 600px;
+    height: 650px;
     margin: 0 auto;
   }
+
+  .post-user-box{
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+
+    .post-user-box-image{
+      border-radius: 30px;
+    }
+
+    .post-user-box-name{
+      margin-left: 10px;
+    }
+
+  }
+
+  .post-introduction{
+    width: 600px;
+    word-break: break-all;
+    margin: 0 auto;
+  }
+
 }
