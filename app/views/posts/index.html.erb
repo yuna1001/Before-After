@@ -1,7 +1,11 @@
 <div id="posts-index">
 
-  <div class="posts-box">
+<% if @posts.empty? %>
+  <p>ユーザをフォローしよう！！</p>
+  <p>タイムラインはフォローしているユーザの投稿を閲覧できます。</p>
+<% end %>
 
+  <div class="posts-box">
     <%# 投稿一覧を表示 %>
     <% @posts.each do |post| %>
       <div class="posts-box-item">
@@ -32,7 +36,6 @@
         <div id="favorites_buttons_<%= post.id %>">
           <%= render partial: 'favorites/favorite', locals: { post: post} %>
         </div>
-
       </div>
     <% end %>
     <%# ここまで投稿一覧表示 %>
