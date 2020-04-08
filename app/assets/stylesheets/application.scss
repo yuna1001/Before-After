@@ -14,6 +14,81 @@
  *= require_self
  */
 
+ *{
+  font-family: "arial unicode ms";
+  font-family: '游ゴシック体';
+}
+
+header{
+    
+  nav{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    z-index: 50;
+    background-color: #ee5833;
+    top: 0px;
+    left: 0px;
+    filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.2));
+
+
+    .nav-box-posts{
+      display: flex;
+      margin: 0 auto;
+      width: 400px;
+      justify-content: space-between;
+      list-style: none;
+      line-height: 50px;
+
+      .nav-box-posts-item{
+        justify-content: space-between;
+        background-color: transparent;
+        
+        .nav-box-posts-item-link{
+          text-decoration: none;
+          font-family: "arial unicode ms";
+          color: #fff;
+
+          &:hover{
+            text-shadow: 1px 2px 3px #fff;
+          }
+
+        }
+
+      }
+
+    }
+
+    .nav-box-user{
+      display: flex;
+      list-style: none;
+      height: 50px;
+      line-height: 50px;
+      margin-top: 0px;
+
+      .nav-box-user-item-btn{
+        height: 50px;
+        line-height: 50px;
+        display: inline-block;
+        background-color: #888;
+        text-decoration: none;
+        font-family: "arial unicode ms";
+        color: #fff;
+      }
+
+    }
+
+  }
+
+}
+
+
+body{
+  margin-top: 100px;
+}
+
+
 .post-new{
   position: fixed;
   width: 100px;
