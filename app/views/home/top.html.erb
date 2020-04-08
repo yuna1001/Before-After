@@ -1,1 +1,107 @@
-<h4>home</h4>
+
+<div class="top-box">
+  <div class="top-box-logo">
+    <div class="logo">
+      <%= render 'layouts/logo'%>
+    </div>
+    <div id="about-logo" onclick="scrollabout()">
+      <%= image_tag "about-logo.png", class: "top-box-about-logo" %>
+    </div>
+    <div id="howto-logo" onclick="scrollhowto()">
+      <%= image_tag "howto-logo.png", class: "top-box-howto-logo" %>
+    </div>
+  </div> 
+</div>
+
+<div class="about-box" id="about-scroll" >
+  <div class="about-box-title">
+    <%= image_tag "about-logo.png", class: "about-box-title-logo" %>
+  </div>
+  <div class="about-body">
+    <p>
+      Before-Afterは、片付け前と片付け後の画像を投稿し共有し合うサイトです。<br>
+      片付けに費やした努力を<span>形に残し</span>、誰かに見てもらうことで<br>
+      片付けの<span>モチベーションUP</span>に繋げていくという目的で作りました。<br>
+      <br>
+      ・片付けたいと思ってもやる気がでない、、、<br>
+      ・どこから片付けていいか分からない、、、<br>
+      このような悩みを持っている方はぜひ<span>投稿してみましょう!!</span>
+    </p>
+  </div>
+</div>
+
+<div class="howto-box">
+
+  <div class="howto-box-title">
+    <%= image_tag "howto-logo.png", class: "howto-box-title-logo" %>
+  </div>
+
+  <div class="howto-steplist">
+    <div class="howto-steplist-image-box">
+      <span class="howto-steplist-image-title">step1</span>
+      <%= image_tag "step1-image.png", class: "howto-steplist-image-item" %>
+    </div>
+    <div class="howto-steplist-body-box">
+      <h1>撮影する</h1>
+      <p>
+        まずは部屋の写真を撮ろう!!<br>
+        撮った写真を見てどこを改善すればいいかを明確にすることで<br>
+        <span>片付けがしやすくなる効果</span>
+        もあります。
+      </p>
+    </div>
+  </div>
+
+  <div class="howto-steplist">
+    <div class="howto-steplist-image-box">
+      <span class="howto-steplist-image-title">step2</span>
+      <%= image_tag "step2-image.png", class: "howto-steplist-image-item" %>
+    </div>
+    <div class="howto-steplist-body-box">
+      <h1>片付ける</h1>      
+      <p>
+        撮った写真を見ながら<br>
+        <span>汚い</span>と思った箇所をとことん片付けましょう!!
+      </p>
+    </div>
+  </div>
+
+  <div class="howto-steplist">
+    <div class="howto-steplist-image-box">
+      <span class="howto-steplist-image-title">step3</span>
+      <%= image_tag "step3-image.png", class: "howto-steplist-image-item" %>
+    </div>
+    <div class="howto-steplist-body-box">
+      <h1>撮影する</h1>      
+      <p>
+        綺麗になった部屋の写真を撮りましょう!!<br>
+        撮影することのメリットは、<br>
+        <span>第三者視点</span>で部屋を見る事ができることです。<br>
+        やり残しに気づくかもしれません。
+      </p>
+    </div>
+  </div>
+
+  <div class="howto-steplist">
+    <div class="howto-steplist-image-box">
+      <span class="howto-steplist-image-title">step4</span>
+      <%= image_tag "step4-image.png", class: "howto-steplist-image-item" %>
+    </div>
+    <div class="howto-steplist-body-box">
+      <h1>投稿する</h1>      
+      <p>
+        頑張って片付けた成果を形として残しましょう!!<br>
+        投稿のいいね総数がたくさん貯まると、<br>
+        <span>片付けマスターランキング</span>で上位を狙えます。<br>
+        片付けマスターを目指して楽しく頑張りましょう!!
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<% unless user_signed_in? %> 
+  <div class="signup-btn">
+    <%= link_to "新規登録", new_user_session_path, class: "signup-btn-text" %>
+  </div>
+<% end %>

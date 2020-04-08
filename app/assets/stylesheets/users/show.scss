@@ -1,5 +1,5 @@
 #users-show{
-
+  margin-top: 100px;
 
   .profile-box-image{
     width: 300px;
@@ -30,17 +30,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 30px 50px 30px 50px;
+    margin: 30px 200px 30px 200px;
 
     &::after{
       content:"";
       display: block;
-      width: 420px;
+      width: 300px;
       }
 
     .posts-box-item{
-      width: 420px;
-      height: 420px;
+      width: 300px;
+      height: 300px;
       position: relative;
       margin-bottom: 60px;
 
@@ -85,7 +85,7 @@
         color: #fff;
         text-shadow: 1px 2px 3px #808080; 
       } 
-     
+    
       &:hover span{
         opacity: 1;
       }

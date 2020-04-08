@@ -36,3 +36,9 @@ function changeBefore(){
   afterimage.style.display = "none";
   beforeimage.style.display = "block";
 }
+
+function scrollabout(){
+  var speed = 400;
+  var position = offset('about-scroll');
+  animate({scrollTop:position}, speed, 'swing');
+}

@@ -16,6 +16,7 @@
 
  *{
   font-family: "arial unicode ms";
+  color: #2e3740;
 }
 
 header{
@@ -84,9 +85,17 @@ header{
 
 
 body{
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
+.logo{
+  width: 200px;
+  margin: 0 auto;
+
+  .logo-item{
+    width: 200px;
+  }
+}
 
 .post-new{
   position: fixed;

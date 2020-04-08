@@ -1,22 +1,21 @@
 #posts-show{
 
-  .before{
-    font-weight: bold;
-    font-size: 60px;
-    filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
-    text-shadow: 1px 2px 3px #fff;
-    width: 100px;
-    margin: 0 auto;
-  }
+.before{
+  margin: 0 auto;
+  width: 150px;
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+}
 
-  .after{
-    font-weight: bold;
-    font-size: 60px;
-    filter: drop-shadow(10px 10px 10px rgba(245,6,6,0.6));
-    text-shadow: 1px 2px 3px #fff;
-    width: 100px;
-    margin: 0 auto;
-  }
+.after{
+  margin: 0 auto;
+  width: 150px;
+  filter: drop-shadow(10px 10px 10px rgba(245,240,0,0.6));
+}
+
+.post-logo-image{
+width: 150px;
+height: 112px;
+}
 
   .post{
     width: 90%;
@@ -31,7 +30,6 @@
       margin-top: 50px;
       cursor: pointer;
       filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
-
     }
 
     .post-box{
