@@ -1,9 +1,13 @@
 <div id="posts-index">
 
-<% if @posts.empty? %>
-  <p>ユーザをフォローしよう！！</p>
-  <p>タイムラインはフォローしているユーザの投稿を閲覧できます。</p>
-<% end %>
+  <div class="logo">
+    <%= render 'layouts/logo'%>
+  </div>
+
+  <% if @posts.empty? %>
+    <p>ユーザをフォローしよう！！</p>
+    <p>タイムラインはフォローしているユーザの投稿を閲覧できます。</p>
+  <% end %>
 
   <div class="posts-box">
     <%# 投稿一覧を表示 %>

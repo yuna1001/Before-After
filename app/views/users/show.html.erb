@@ -71,13 +71,13 @@
 
         <%# ここからbefore画像 %>
         <%= link_to post_path(post.id) do %>
-          <%= attachment_image_tag post, :before_image, :fill, 420, 420 %>
+          <%= attachment_image_tag post, :before_image, :fill, 300, 300 %>
         <% end %>
         <%# ここまで %>
 
         <%# ここからafter画像(cssにてhoverすると表示されるように設定) %>
         <%= link_to post_path(post.id) do %>
-          <%= attachment_image_tag post, :after_image, :fill, 420, 420, class: "posts-box-item-after" %>
+          <%= attachment_image_tag post, :after_image, :fill, 300, 300, class: "posts-box-item-after" %>
         <% end %>
         <%# ここまで %>
 
