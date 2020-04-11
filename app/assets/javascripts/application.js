@@ -15,6 +15,16 @@
 //= require activestorage
 //= require_tree .
 
+//Topページのスクロール機能
+function scrollabout(){
+  $('html, body').animate({scrollTop:778});
+}
+
+function scrollhowto(){
+  $('html, body').animate({scrollTop:1176});
+}
+
+//投稿詳細ページのクリック動作
 function changeAfter(){
 	var before = document.getElementById('posts-before');
 	var after = document.getElementById('posts-after');
@@ -24,6 +34,7 @@ function changeAfter(){
   after.style.display = "block";
   beforeimage.style.display = "none";
   afterimage.style.display = "block";
+  console.log(before);
 }
 
 function changeBefore(){
@@ -37,8 +48,4 @@ function changeBefore(){
   beforeimage.style.display = "block";
 }
 
-function scrollabout(){
-  var speed = 400;
-  var position = offset('about-scroll');
-  animate({scrollTop:position}, speed, 'swing');
-}
+
