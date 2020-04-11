@@ -1,0 +1,8 @@
+<h1>ranking</h1>
+<% @users.zip(@favorites) do |user,favorite| %>
+  <%= user.name %>
+  <%= favorite %>
+  <%= attachment_image_tag user, :profile_image,
+             :fill, 50, 50, fallback: "noimage.png", size:'50x50', class: "profile-image" %>
+<% end %>
+

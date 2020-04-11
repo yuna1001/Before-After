@@ -2,23 +2,36 @@ class PostsController < ApplicationController
   before_action :authenticate_user! , only:[:new, :create, :edit, :update]
   
   def index
+
+    #いいねが多い順に表示させる機能。(人気)
     if params[:ranking]
-      @posts = Post.find(Favorite.group(:post_id).order("count(post_id) desc"). pluck(:post_id))
-      #いいねが多い順に表示させる機能。(人気)
-      #Favorite(いいね)のレコードを"post_id"(投稿id)ごとにgroup分けを行う。
-      #orderで"post_id"が多い順に並び替えを行う。
-      #pluckで複数のレコードから"post_id"のidだけを取り出す。
+      #GROUPBY[Favoriteモデルをuser_idごとに分ける]
+      #ORDER[COUNT[post_idでカウント]レコードを降順で並び替え]
+      #puluck[post_idを取り出す]
+      @posts = 
+        Post.find(Favorite.group(:post_id)
+          .order("count(post_id) desc")
+          .pluck(:post_id)
+          )
+
+    #新しい投稿順で表示させる機能。(新着)
     elsif params[:new]
-      @posts = Post.all.order("created_at DESC")
-      #新しい投稿順で表示させる機能。(新着)
-      #Postレコードの"created_at"カラムを昇順(DESC)に並び替える。
+      #ORDER[レコードのcreated_atを降順で並び替え]
+      @posts = 
+        Post.all
+          .order("created_at DESC")
+
+    #フォローしているユーザの投稿のみを表示させる機能。(タイムライン)
     else
       user = User.find(current_user.id)
       following_users = user.following
-      @posts = Post.where(user_id: following_users ).order("created_at DESC")
-      #フォローしているユーザの投稿のみを表示させる機能。(タイムライン)
-      #Postレコードの"user_id"カラムからfollowing_users(フォロー中ユーザ)の投稿だけを取り出し、昇順(DESC)に並び替える。
+      #where[Postモデルからフォロー中ユーザのレコードを取り出す]
+      #ORDER[レコードのcreated_atを降順で並び替え]
+      @posts = 
+        Post.where(user_id: following_users)
+          .order("created_at DESC")
     end
+
   end
 
   def show

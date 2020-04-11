@@ -12,51 +12,68 @@
   <body>
     
     <header>
+
       <%# ログインしているユーザ %>
       <% if user_signed_in? %>
+
         <nav>
-          <ul class="nav-box-about">
-            <li class="nav-box-about-item">
-              <%= link_to "このサイトについて", root_path %>
+
+          <ul>
+            <li class="nav-box-user-item">
+              <%= link_to "マイページ",user_path(current_user.id), class: "nav-box-user-item-btn" %>
+            </li>
+            <li class="nav-box-user-item">
+              <%= link_to "片付けマスターランキング",users_ranking_path, class: "nav-box-user-item-btn" %>
             </li>
           </ul>
+
           <ul class="nav-box-posts">
             <li class="nav-box-posts-item"><%= link_to "タイムライン",
                 posts_path, class: "nav-box-posts-item-link" %>
             </li>
             <li class="nav-box-posts-item">
-              <%= link_to "人気", posts_path(ranking: "params"), class: "nav-box-posts-item-link" %>
+              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "nav-box-posts-item-link" %>
             </li>
             <li class="nav-box-posts-item">
               <%= link_to "新着", posts_path(new: "params"), class: "nav-box-posts-item-link" %>
             </li>
           </ul>
+
+          <ul class="nav-box-about">
+            <li class="nav-box-about-item">
+              <%= link_to "このサイトについて", root_path %>
+            </li>
+          </ul>
+
           <ul class="nav-box-user">
             <li class="nav-box-user-item">
-              <%= link_to "Mypage",user_path(current_user.id), class: "nav-box-user-item-btn" %>
-            </li>
-            <li class="nav-box-user-item">
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, 
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, 
               class: "nav-box-user-item-btn" %>
             </li>
           </ul>
+
         </nav>
+
+      <%# ログインしていないユーザ %> 
       <% else %>
-        <%# ログインしていないユーザ %>
+
         <nav>
+
           <ul class="nav-box">
             <li class="nav-box-about-item">
               <%= link_to "このサイトについて", root_path %>
             </li>
           </ul>
+
           <ul class="nav-box-posts">
             <li class="nav-box-posts-item">
-              <%= link_to "人気", posts_path(ranking: "params"), class: "nav-box-posts-item-link" %>
+              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "nav-box-posts-item-link" %>
             </li>
             <li class="nav-box-posts-item">
               <%= link_to "新着", posts_path(new: "params"), class: "nav-box-posts-item-link" %>
             </li>
           </ul>
+
           <ul class="nav-box-user">
             <li class="nav-box-user-item">
               <%= link_to "Signup", new_user_registration_path,class: "nav-box-user-item-btn" %>
@@ -65,9 +82,11 @@
               <%= link_to "Login", new_user_session_path,class: "nav-box-user-item-btn" %>
             </li>
           </ul>
-        </nav>
-      <% end %>
 
+        </nav>
+
+      <% end %>
+      
     </header>
 
     <%= yield %>
