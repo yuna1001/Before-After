@@ -59,9 +59,9 @@
 
         <nav>
 
-          <ul class="nav-box">
-            <li class="nav-box-about-item">
-              <%= link_to "このサイトについて", root_path %>
+          <ul>
+            <li class="nav-box-user-item">
+              <%= link_to "片付けマスターランキング",users_ranking_path, class: "nav-box-user-item-btn" %>
             </li>
           </ul>
 
@@ -74,19 +74,25 @@
             </li>
           </ul>
 
+          <ul class="nav-box">
+            <li class="nav-box-about-item">
+              <%= link_to "このサイトについて", root_path %>
+            </li>
+          </ul>
+
           <ul class="nav-box-user">
             <li class="nav-box-user-item">
-              <%= link_to "Signup", new_user_registration_path,class: "nav-box-user-item-btn" %>
+              <%= link_to "新規登録", new_user_registration_path,class: "nav-box-user-item-btn" %>
             </li>
             <li class="nav-box-user-item">
-              <%= link_to "Login", new_user_session_path,class: "nav-box-user-item-btn" %>
+              <%= link_to "ログイン", new_user_session_path,class: "nav-box-user-item-btn" %>
             </li>
           </ul>
 
         </nav>
 
       <% end %>
-      
+
     </header>
 
     <%= yield %>
