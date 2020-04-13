@@ -49,42 +49,39 @@ function changeBefore(){
 }
 
 $(function(){
-  //querySelectorでfile_fieldを取得
-  var file_field = document.querySelector('input[type=file]')
   //fileが選択された時に発火するイベント
-  $('#preview-before').change(function(){
+  $('input#preview-before').change(function(){
     $('img#before').remove();
     //選択したfileのオブジェクトをpropで取得
-    var file = $('input[type="file"]').prop('files')[0];
+    var file = $('input#preview-before').prop('files')[0];
     //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
     var fileReader = new FileReader();
     //読み込みが完了すると、srcにfileのURLを格納
     fileReader.onloadend = function() {
       var src = fileReader.result
       var html= `<img src="${src}" width="114" height="80" id="before">`
-      //image_box__container要素の前にhtmlを差し込む
-      $('#test1').before(html);
+      //before-imageの前にhtmlを差し込む
+      $('#before-image').before(html);
     }
     fileReader.readAsDataURL(file);
   });
 });
 
 $(function(){
-  //querySelectorでfile_fieldを取得
-  var file_field = document.querySelector('input[type=file]')
   //fileが選択された時に発火するイベント
   $('#preview-after').change(function(){
-    $('img').remove();
+    $('img#after').remove();
     //選択したfileのオブジェクトをpropで取得
-    var file = $('input[type="file"]').prop('files')[0];
+    var file = $('input#preview-after').prop('files')[0];
+    console.log(file);
     //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
     var fileReader = new FileReader();
     //読み込みが完了すると、srcにfileのURLを格納
     fileReader.onloadend = function() {
       var src = fileReader.result
-      var html= `<img src="${src}" width="114" height="80">`
-      //image_box__container要素の前にhtmlを差し込む
-      $('#test2').before(html);
+      var html= `<img src="${src}" width="114" height="80" id="after">`
+      //after-image要素の前にhtmlを差し込む
+      $('#after-image').before(html);
     }
     fileReader.readAsDataURL(file);
   });
