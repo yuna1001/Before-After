@@ -7,11 +7,17 @@
   <% end %>
 <% end %>
 
-<%= form_for(@post) do |f| %>
-  <%= f.attachment_field :before_image %>
-  <%= f.attachment_field :after_image %>
 
-  <h4>説明</h4>
-  <%= f.text_area :body %>
-  <p><%= f.submit 'Create' %></p>
-<% end %>
+
+<div id="post-box">
+  <%= form_for(@post, remote: true) do |f| %>
+    <%= f.attachment_field :before_image, id: "preview-before" %>
+    <div id="test1"></div>
+    <%= f.attachment_field :after_image, id: "preview-after" %>
+    <div id="test2"></div>
+    <h4>説明</h4>
+    <%= f.text_area :body %>
+    <p><%= f.submit 'Create' %></p>
+  <% end %>
+</div>
+
