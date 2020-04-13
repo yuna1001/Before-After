@@ -36,7 +36,7 @@
         <span><%= post.user.name %></span>
         <%# ここまで %>
 
-        <%# いいねボタン %>
+        <%# いいねボタン非同期通信 %>
         <div id="favorites_buttons_<%= post.id %>">
           <%= render partial: 'favorites/favorite', locals: { post: post} %>
         </div>
