@@ -1,34 +1,63 @@
-<h2>Sign up</h2>
+<div id="signup">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="signup-title">
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "current-name" %>
+    <div class="logo">
+      <%= render 'layouts/logo'%>
+    </div>
+
+    <div>
+      <%= link_to new_user_session_path do %>
+        <h6>ログインはこちら></h6>
+      <% end %>
+    </div>
+
+    <h4>\ 約1分で登録でき、すぐにご利用いただけます!! /</h4>
+
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div>
+
+    <div class="signup-form">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.text_field :name, autocomplete: "current-name", placeholder: "ユーザ名" %>
+        </div>
+
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード(6文字以上)" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認用)" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録", class: "signup-botan" %>
+        </div>
+      <% end %>
+
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="signup-introduction">
+
+　　 <h3>- 登録するとできること -</h3>
+    <p>
+      ・BeforeAfterの投稿ができるようになります。<br><br>
+      ・ユーザをフォローし、<br>
+        タイムラインでリアルタイムに投稿を確認することができます。<br><br>
+      ・片付けマスターランキングに参加することができます。
+    </p>
+
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
