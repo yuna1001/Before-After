@@ -7,9 +7,6 @@
   <% end %>
 <% end %>
 
-
-
-
 <%= form_for(@post, remote: true) do |f| %>
   <%= f.attachment_field :before_image, id: "preview-before" %>
   <div id="before-image"></div>
