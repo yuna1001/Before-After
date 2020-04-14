@@ -9,14 +9,6 @@
     <p><%= flash[:notice] %></p>
   <% end %>
 
-  <%# 画像(クリックで表示変更させる) %>
-  <div class="before", id="posts-before">
-    <%= image_tag "before-logo.png", class: "post-logo-image" %>
-  </div>
-  <div class="after", id="posts-after" style= "display: none;">
-    <%= image_tag "after-logo.png", class: "post-logo-image" %>
-  </div>
-
   <div class="post">
 
     <%# before画像(クリックで表示変更させる) %>
@@ -30,6 +22,7 @@
     </div>
 
     <div class="post-box">
+
       <div class="post-box-profile">
         <%# プロフィール画像(ユーザ詳細ページへリンク) %>
           <%= link_to user_path(@post.user.id) do %>
@@ -41,10 +34,25 @@
         </div>
       </div>
 
+      <%# 画像(クリックで表示変更させる) %>
+      <div class="before", id="posts-before">
+        <%= image_tag "before-logo.png", class: "post-logo-image" %>
+      </div>
+      <div class="after", id="posts-after" style= "display: none;">
+        <%= image_tag "after-logo.png", class: "post-logo-image" %>
+      </div>
+
       <div class="post-box-introduction">
         <p><%= @post.body %></p>
       </div>
+
+      <%# いいねボタン非同期通信 %>
+      <div id="favorites_buttons_<%= @post.id %>">
+        <%= render partial: 'favorites/favorite', locals: { post: @post} %>
+      </div>
+    
     </div>
+
 
   </div>
 

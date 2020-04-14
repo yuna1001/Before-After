@@ -13,8 +13,8 @@
 }
 
 .post-logo-image{
-width: 150px;
-height: 112px;
+  width: 150px;
+  height: 112px;
 }
 
   .post{
@@ -50,6 +50,12 @@ height: 112px;
         width: 600px;
         word-break: break-all;
         margin: 0 auto;
+        height: 200px;
+      }
+
+      .favorite-image{
+        filter: brightness(0.5);
+        width: 30px;
       }
 
     }
