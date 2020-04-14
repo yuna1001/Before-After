@@ -2,11 +2,16 @@ ja:
   activerecord:
     attributes:
       user:
+        name: "ユーザ名"
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      post:
+        body: "本文"
+        before_image: "before画像"
+        after_image: "after画像"
     models:
       user: "ユーザ"
   devise:
