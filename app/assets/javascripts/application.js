@@ -59,7 +59,7 @@ $(function(){
     //読み込みが完了すると、srcにfileのURLを格納
     fileReader.onloadend = function() {
       var src = fileReader.result
-      var html= `<img src="${src}" width="114" height="80" id="before">`
+      var html= `<img src="${src}" width="114" height="80" id="before">`;
       //before-imageの前にhtmlを差し込む
       $('#before-image').before(html);
     }
@@ -79,7 +79,7 @@ $(function(){
     //読み込みが完了すると、srcにfileのURLを格納
     fileReader.onloadend = function() {
       var src = fileReader.result
-      var html= `<img src="${src}" width="114" height="80" id="after">`
+      var html= `<img src="${src}" width="114" height="80" id="after">`;
       //after-image要素の前にhtmlを差し込む
       $('#after-image').before(html);
     }
