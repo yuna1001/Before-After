@@ -1,13 +1,12 @@
 <h1>Posts#new</h1>
 
 <% if @post.errors.any? %>
-  <%= @post.errors.count %>件のエラーがでいます。
-  <%= @post.errors.full_messages.each do |message| %>
-    <%= message %>
+  <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
   <% end %>
 <% end %>
 
-<%= form_for(@post, remote: true) do |f| %>
+<%= form_for(@post, local: true) do |f| %>
   <%= f.attachment_field :before_image, id: "preview-before" %>
   <div id="before-image"></div>
   <%= f.attachment_field :after_image, id: "preview-after" %>
@@ -16,5 +15,3 @@
   <%= f.text_area :body %>
   <p><%= f.submit 'Create' %></p>
 <% end %>
-
-
