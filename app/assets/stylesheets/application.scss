@@ -33,147 +33,114 @@ header{
     background-color: #ee5833;
     filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.2));
 
-      .header-front-container{
-        width: 100%;
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        // listitemをより中央に合わせるため調整
-        margin-right: 43px;
-        // header内に別要素を重ねるため親要素に指定
-        position: relative;
+    .header-front-container{
+      width: 100%;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      // listitemをより中央に合わせるため調整
+      margin-right: 43px;
+      // header内に別要素を重ねるため親要素に指定
+      position: relative;
 
-        .header-postlist-listitem{
-          width: 100px;
-          height: 50px;
-
-          .header-postlist-link{
-            text-decoration: none;
-            color: #fff;
-
-            &:hover{
-              text-shadow: 1px 2px 3px #fff;
-            }
-
-          }
-
-        }
-
-      }
-
-      .header-left-conteiner{
-        display: flex;
-        list-style: none;       
-        position: absolute;
-        margin: 0px;
+      .header-postlist-listitem{
+        width: 100px;
         height: 50px;
-        position: absolute;
-        left: 0px;
-        // 左側のずれを調整
-        margin-left: -40px;
 
-        .header-mypage-listitem{
-          width: 70px;
-          background-color: #ece7e7;
-          filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+        .header-postlist-link{
+          text-decoration: none;
+          color: #fff;
 
-          .header-mypage-link{
-            width: 70px;
-
-            &:hover{
-              filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
-            }
-
-          }
-
-        }
-
-        .header-masterranking-listitem{
-          width: 150px;
-          background-color: #f48e0c;
-          height: 50px;
-          filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
-
-          .header-masterranking-link{
-            height: 50px;
-
-            &:hover{
-              filter: drop-shadow(2px 2px 2px rgba(255,255,255,1));
-            }
-
+          &:hover{
+            text-shadow: 1px 2px 3px #fff;
           }
 
         }
 
       }
 
-      .header-about-container{
-        position: absolute;
-        right: 200px;
-        list-style: none;
-      }
-
-      .header-right-container{
-        position: absolute;
-        right: 0px;
-        list-style: none;
-        margin: 0px;
-        display: flex;
-
-        .header-accountoperation-listitem{
-          background-color: #ece7e7;
-          height: 50px;
-          filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
-
-          .header-accountoperation-link{
-            width: 80px;
-            height: 49px;
-            display: block;
-            line-height: 50px;
-          }
-
-          .header-accountoperation-image{
-            width: 70px;
-
-            &:hover{
-              filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
-            }
-
-          }
-
-        }
-
-      }
-
-
-
-
-
-
-
-
-
-    .nav-about{
-      position: absolute;
     }
 
-    .nav-box-user{
+    .header-left-conteiner{
       display: flex;
-      list-style: none;
+      list-style: none;       
+      position: absolute;
+      margin: 0px;
       height: 50px;
-      line-height: 50px;
-      margin-top: 0px;
+      position: absolute;
+      left: 0px;
+      // 左側のずれを調整
+      margin-left: -40px;
+
+      .header-mypage-listitem{
+        width: 70px;
+        background-color: #ece7e7;
+        filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+
+        .header-mypage-link{
+          width: 70px;
+
+          &:hover{
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+          }
+
+        }
+
+      }
+
+      .header-masterranking-listitem{
+        width: 150px;
+        background-color: #f48e0c;
+        height: 50px;
+        filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+
+        .header-masterranking-link{
+          height: 50px;
+
+          &:hover{
+            filter: drop-shadow(2px 2px 2px rgba(255,255,255,1));
+          }
+
+        }
+
+      }
+
+    }
+
+    .header-about-container{
+      position: absolute;
+      right: 200px;
+      list-style: none;
+    }
+
+    .header-right-container{
       position: absolute;
       right: 0px;
+      list-style: none;
+      margin: 0px;
+      display: flex;
 
-      .nav-box-user-item-btn{
+      .header-accountoperation-listitem{
+        background-color: #ece7e7;
         height: 50px;
-        line-height: 50px;
-        display: inline-block;
-        background-color: #888;
-        text-decoration: none;
-        font-family: "arial unicode ms";
-        color: #fff;
+        filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+
+        .header-accountoperation-link{
+          width: 80px;
+          height: 49px;
+          display: block;
+          line-height: 50px;
+        }
+
+        .header-accountoperation-image{
+          width: 70px;
+
+          &:hover{
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+          }
+
+        }
+
       }
 
     }
@@ -181,7 +148,6 @@ header{
   }
 
 }
-
 
 body{
   margin-top: 50px;
