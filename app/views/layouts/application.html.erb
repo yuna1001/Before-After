@@ -16,39 +16,49 @@
       <%# ログインしているユーザ %>
       <% if user_signed_in? %>
 
-        <nav>
+        <nav class="header-nav-container">
 
-          <ul>
-            <li class="nav-box-user-item">
-              <%= link_to "マイページ",user_path(current_user.id), class: "nav-box-user-item-btn" %>
+          <%# 中央の各投稿一覧ページへのリンク %>
+          <ul class="header-front-container">
+            <li class="header-postlist-listitem"><%= link_to "タイムライン",
+                posts_path, class: "header-postlist-link" %>
             </li>
-            <li class="nav-box-user-item">
-              <%= link_to "片付けマスターランキング",users_ranking_path, class: "nav-box-user-item-btn" %>
+            <li class="header-postlist-listitem">
+              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link" %>
+            </li>
+            <li class="header-postlist-listitem">
+              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link" %>
             </li>
           </ul>
 
-          <ul class="nav-box-posts">
-            <li class="nav-box-posts-item"><%= link_to "タイムライン",
-                posts_path, class: "nav-box-posts-item-link" %>
+          <%# 左側のマイページとマスターランキングへのリンク %>
+          <ul class="header-left-conteiner">
+            <li class="header-mypage-listitem">
+              <%= link_to user_path(current_user.id) do %>
+                <%= image_tag "mypage.png", class: "header-mypage-link" %>
+              <% end %>
             </li>
-            <li class="nav-box-posts-item">
-              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "nav-box-posts-item-link" %>
-            </li>
-            <li class="nav-box-posts-item">
-              <%= link_to "新着", posts_path(new: "params"), class: "nav-box-posts-item-link" %>
+            <li class="header-masterranking-listitem">
+              <%= link_to users_ranking_path do %>
+                <%= image_tag "masterranking.png", class: "header-masterranking-link" %>
+              <% end %>
             </li>
           </ul>
 
-          <ul class="nav-box-about">
-            <li class="nav-box-about-item">
+          <%# topページへのリンク %>
+          <ul class="header-about-container">
+            <li>
               <%= link_to "このサイトについて", root_path %>
             </li>
           </ul>
 
-          <ul class="nav-box-user">
-            <li class="nav-box-user-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, 
-              class: "nav-box-user-item-btn" %>
+          <%# 右側のログアウトリンク %>
+          <ul class="header-right-container">
+            <li class="header-accountoperation-listitem">
+              <%= link_to  destroy_user_session_path, method: :delete,
+                   class: "header-accountoperation-link" do %>
+                <%= image_tag "logout.png", class: "header-accountoperation-image" %>
+              <% end %>
             </li>
           </ul>
 
@@ -57,35 +67,45 @@
       <%# ログインしていないユーザ %> 
       <% else %>
 
-        <nav>
+        <nav class="header-nav-container">
 
-          <ul>
-            <li class="nav-box-user-item">
-              <%= link_to "片付けマスターランキング",users_ranking_path, class: "nav-box-user-item-btn" %>
+          <%# 中央の各投稿一覧ページへのリンク %>
+          <ul class="header-front-container">
+            <li class="header-postlist-listitem">
+              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link" %>
+            </li>
+            <li class="header-postlist-listitem">
+              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link" %>
             </li>
           </ul>
 
-          <ul class="nav-box-posts">
-            <li class="nav-box-posts-item">
-              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "nav-box-posts-item-link" %>
-            </li>
-            <li class="nav-box-posts-item">
-              <%= link_to "新着", posts_path(new: "params"), class: "nav-box-posts-item-link" %>
+          <%# 左側のマスターランキングへのリンク %>
+          <ul class="header-left-conteiner">
+            <li class="header-masterranking-listitem">
+              <%= link_to users_ranking_path do %>
+                <%= image_tag "masterranking.png", class: "header-masterranking-link" %>
+              <% end %>
             </li>
           </ul>
 
-          <ul class="nav-box">
-            <li class="nav-box-about-item">
+          <%# topページへのリンク %>
+          <ul class="header-about-container">
+            <li>
               <%= link_to "このサイトについて", root_path %>
             </li>
           </ul>
 
-          <ul class="nav-box-user">
-            <li class="nav-box-user-item">
-              <%= link_to "新規登録", new_user_registration_path,class: "nav-box-user-item-btn" %>
+          <%# 右側の新規登録とログインへのリンク %>
+          <ul class="header-right-container">
+            <li class="header-accountoperation-listitem">
+              <%= link_to new_user_registration_path, class: "header-accountoperation-link" do %>
+                <%= image_tag "signup.png", class: "header-accountoperation-image" %>
+              <% end %>
             </li>
-            <li class="nav-box-user-item">
-              <%= link_to "ログイン", new_user_session_path,class: "nav-box-user-item-btn" %>
+            <li class="header-accountoperation-listitem">
+              <%= link_to new_user_session_path, class: "header-accountoperation-link" do %>
+                <%= image_tag "login.png", class: "header-accountoperation-image" %>
+              <% end %>
             </li>
           </ul>
 
