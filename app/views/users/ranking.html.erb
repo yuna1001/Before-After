@@ -1,8 +1,40 @@
-<h1>ranking</h1>
-<% @users.zip(@favorites) do |user,favorite| %>
-  <%= user.name %>
-  <%= favorite %>
-  <%= attachment_image_tag user, :profile_image,
-             :fill, 50, 50, fallback: "noimage.png", size:'50x50', class: "profile-image" %>
-<% end %>
+<div id="users-ranking-container">
 
+  <div class="title-box">
+
+    <%= image_tag "masterranking_lg.png", class: "title-image" %>
+
+  </div>
+
+  <div class="ranking-container">
+
+    <% @users.zip(@favorites) do |user,favorite| %>
+
+      <table class="ranking-table">
+
+        <tr>
+
+          <td class="ranking-item">
+            <%= favorite %>いいね獲得!!
+          </td>
+
+          <td class="ranking-item">
+            <%= user.name %>
+          </td>
+
+          <td class="ranking-item">
+            <%= link_to user_path(user.id) do %>
+              <%= attachment_image_tag user, :profile_image,
+               :fill, 50, 50, fallback: "noimage.png", size:'50x50', class: "profile-image" %>
+            <% end %>
+          </td>
+
+        </tr>
+
+      </table>
+
+    <% end %>
+
+  </div>
+
+</div>
