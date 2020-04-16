@@ -1,4 +1,4 @@
-<div id="users-show">
+<div id="users-show-container">
 
   <%# successメッセージを表示 %>
   <% if flash[:notice] %>
@@ -6,37 +6,39 @@
   <% end %>
 
   <%# プロフィール画像とユーザ名 %>
-  <div class="profile-box">
+  <div class="profile-container">
 
-    <div class="profile-box-image">
+    <div class="profile-image-box">
       <%= attachment_image_tag @user, :profile_image,
-       fallback: "noimage.png", class: "profile-box-image-item" %>
+       fallback: "noimage.png", class: "profile-image" %>
     </div>
-    <div class="profile-box-name">
+
+    <div class="profile-username-box">
       <h2><%= @user.name %></h2>
     </div>
 
     <%# カレントユーザのみ編集リンク表示 %>
-    <div class="profile-box-edit-btn">
+    <div>
       <% if user_signed_in? %>
         <% if @user.id === current_user.id %>
-          <%= link_to "編集", edit_user_path %>
+          <%= link_to "編集", edit_user_path, class: "profile-edit-btn" %>
         <% end %>
       <% end %>
     </div>
+
     <%# フォローボタン %>
-    <div class="profile-box-follow-btn">
+    <div>
       <% if user_signed_in? %>
         <% if @user.id != current_user.id %>
           <% if current_user.following?(@user) %>
             <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
                      html: { method: :delete }) do |f| %>
-              <%= f.submit "Unfollow" %>
+              <%= f.submit "フォローを外す", class: "unfollow-btn" %>
             <% end %>
           <% else %>
             <%= form_for(current_user.active_relationships.build) do |f| %>
               <%= hidden_field_tag :followed_id, @user.id %>
-              <%= f.submit "Follow" %>
+              <%= f.submit "フォローする", class: "follow-btn" %>
             <% end %>
           <% end %>
         <% end %>
@@ -44,7 +46,7 @@
     </div>
 
     <%# フォロー、フォロワー一覧へのリンク %>
-    <div class="profile-box-follow-counter">
+    <div class="profile-follow-count-box">
       <h4>
         <%= link_to following_user_path(@user.id) do %>
           フォロー<%= @user.following.count %>
@@ -58,16 +60,18 @@
     </div>
 
     <%# ユーザの紹介文 %>
-    <div class="profile-box-user-introduction">
+    <div class="profile-userintroduction-box">
       <p><%= @user.body %></p>
     </div>
 
   </div>
 
   <%# ここからユーザの投稿一覧 %>
-  <div class="posts-box">
+  <div class="posts-container">
+
     <% @user.posts.each do |post| %>
-      <div class="posts-box-item">
+
+      <div class="posts-item-box">
 
         <%# ここからbefore画像 %>
         <%= link_to post_path(post.id) do %>
@@ -77,7 +81,7 @@
 
         <%# ここからafter画像(cssにてhoverすると表示されるように設定) %>
         <%= link_to post_path(post.id) do %>
-          <%= attachment_image_tag post, :after_image, :fill, 300, 300, class: "posts-box-item-after" %>
+          <%= attachment_image_tag post, :after_image, :fill, 300, 300, class: "posts-item-afterimage" %>
         <% end %>
         <%# ここまで %>
 
@@ -91,13 +95,15 @@
         <%# ユーザ名(cssにてhoverすると表示されるように設定) %>
         <span><%= @user.name %></span>
 
-        <%# いいねボタン %>
+        <%# いいねボタン(非同期通信) %>
         <div id="favorites_buttons_<%= post.id %>">
           <%= render partial: 'favorites/favorite', locals: { post: post} %>
         </div>
 
       </div>
+
     <% end %> 
+
   </div>
 
 </div>

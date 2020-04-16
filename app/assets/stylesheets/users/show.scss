@@ -1,21 +1,55 @@
-#users-show{
+#users-show-container{
   margin-top: 100px;
 
-  .profile-box-image{
+  .profile-image-box{
     width: 300px;
     margin: 0 auto;
 
-    .profile-box-image-item{
+    .profile-image{
       border-radius: 150px;
     }
 
   }
 
-  .profile-box-name{
+  .profile-username-box{
     text-align: center;
   }
 
-  .profile-box-follow-counter{
+  .profile-edit-btn{
+    color: #fff;
+    display: block;
+    width: 130px;
+    margin: 0 auto;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f4b046;
+    text-decoration: none;
+  }
+
+  .unfollow-btn{
+    width: 130px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f7321cdb;
+  }
+
+  .follow-btn{
+    width: 130px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    background-color: #386deb;
+  }
+
+  .profile-follow-count-box{
     display: flex;
     margin: 0 auto;
     width: 300px;
@@ -26,11 +60,17 @@
 
   }
 
-  .posts-box{
+  .profile-userintroduction-box{
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .posts-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 30px 200px 30px 200px;
+    margin: 100px 200px 30px 200px;
 
     &::after{
       content:"";
@@ -38,13 +78,13 @@
       width: 300px;
       }
 
-    .posts-box-item{
+    .posts-item-box{
       width: 300px;
       height: 300px;
       position: relative;
       margin-bottom: 60px;
 
-      .posts-box-item-after{
+      .posts-item-afterimage{
         opacity: 0;
         transition: 0.5s;
         position: absolute;
@@ -71,10 +111,6 @@
 
       }
 
-      &:hover .profile-image{
-        opacity: 1;
-      }
-
       span{
         position: absolute;
         top: 37px;
@@ -85,27 +121,35 @@
         color: #fff;
         text-shadow: 1px 2px 3px #808080; 
       } 
-    
-      &:hover span{
-        opacity: 1;
+
+      .favorite-counter{
+        position: absolute;
+        top: 88%;
+        left: 85%;
+        color: #fff;
+        text-shadow: 1px 2px 3px #808080;
+        opacity: 0; 
       }
 
       .favorite-image{
         position: absolute;
-        top: 85%;
-        left: 85%;
+        top: 90%;
+        left: 90%;
         opacity: 0;
         transition: 0.1s;
         filter: drop-shadow(8px 8px 8px rgba(0,0,0,0.6));
         width: 20px;
 
         &:hover{
-          width: 30px;
+          width: 25px;
+          top: 89%;
+          left: 89%;
         }
 
       }
 
-      &:hover .favorite-image{
+      &:hover .profile-image, &:hover span, 
+      &:hover .favorite-image, &:hover .favorite-counter{
         opacity: 1;
       }
 
