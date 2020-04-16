@@ -1,0 +1,35 @@
+#users-ranking-container{
+
+  .title-box{
+    width: 100%;
+    text-align: center;
+    background-color: #ffe4c4;
+
+    .title-image{
+      width: 300px;
+    }
+
+  }
+
+  .ranking-container{
+    margin-top: 30px;
+
+    .ranking-table{
+      margin: 0 auto;
+
+      .ranking-item{
+        width: 200px;
+        display: inline-block;
+        text-align: center;
+
+        .profile-image{
+          border-radius: 30px;
+        }
+
+      }
+
+    }
+
+  }
+
+}
