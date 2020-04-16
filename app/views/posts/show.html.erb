@@ -1,48 +1,56 @@
 <div id="posts-show">
-  
-  <div class="logo">
-    <%= render 'layouts/logo'%>
-  </div>
 
   <%# successメッセージを表示 %>
   <% if flash[:notice] %>
     <p><%= flash[:notice] %></p>
   <% end %>
 
-  <div class="post">
+  <%# 画像(クリックで表示変更させる) %>
+  <div class="before-logo", id="posts-before">
+    <%= image_tag "before-logo.png", class: "logo-image" %>
+  </div>
+  <div class="after-logo", id="posts-after" style= "display: none;">
+    <%= image_tag "after-logo.png", class: "logo-image" %>
+  </div>
+
+  <div class="post-container">
 
     <%# before画像(クリックで表示変更させる) %>
     <div class="post-image", id="posts-image-before" onclick="changeAfter()" >
-      <%= attachment_image_tag @post, :before_image, :fill, 600, 600 %>
+      <%= attachment_image_tag @post, :before_image, :fill, 500, 500 %>
     </div>
 
     <%# after画像(クリックで表示変更させる) %>
     <div class="post-image", id="posts-image-after" onclick="changeBefore()" style= "display: none;" >
-      <%= attachment_image_tag @post, :after_image, :fill, 600, 600 %>
+      <%= attachment_image_tag @post, :after_image, :fill, 500, 500 %>
     </div>
 
-    <div class="post-box">
+    <div class="post-right-container">
 
-      <div class="post-box-profile">
+      <div class="post-user-box">
+
         <%# プロフィール画像(ユーザ詳細ページへリンク) %>
-          <%= link_to user_path(@post.user.id) do %>
-            <%= attachment_image_tag @post.user, :profile_image,
-             :fill, 50, 50, fallback: "noimage.png", size:'50x50', class: "post-box-profile" %>
-          <% end %>    
-        <div class="post-box-user-name">
-          <h2><%= @post.user.name %></h2>
+        <%= link_to user_path(@post.user.id) do %>
+          <%= attachment_image_tag @post.user, :profile_image,
+           :fill, 50, 50, fallback: "noimage.png", size:'50x50', class: "post-user-profileimage" %>
+        <% end %>
+
+        <h2><%= @post.user.name %></h2>
+
+        <%# カレントユーザのみ以下表示 %>
+        <div class="post-edit-box">
+          <% if user_signed_in? %>
+            <% if @post.user.id === current_user.id || current_user.admin? %>
+              <%= link_to "編集", edit_post_path, class: "post-edit-link" %>
+              <%= link_to "削除", post_path(@post),
+                   method: :delete, data: { confirm: '削除しますか？' }, class: "post-destroy-link" %>
+            <% end %>
+          <% end %>
         </div>
+
       </div>
 
-      <%# 画像(クリックで表示変更させる) %>
-      <div class="before", id="posts-before">
-        <%= image_tag "before-logo.png", class: "post-logo-image" %>
-      </div>
-      <div class="after", id="posts-after" style= "display: none;">
-        <%= image_tag "after-logo.png", class: "post-logo-image" %>
-      </div>
-
-      <div class="post-box-introduction">
+      <div class="post-introduction">
         <p><%= @post.body %></p>
       </div>
 
@@ -53,16 +61,7 @@
     
     </div>
 
-
   </div>
-
-  <%# カレントユーザのみ以下表示 %>
-  <% if user_signed_in? %>
-    <% if @post.user.id === current_user.id || current_user.admin? %>
-      <%= link_to "編集", edit_post_path %>
-      <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '削除しますか？' } %>
-    <% end %>
-  <% end %>
 
 </div>
 
