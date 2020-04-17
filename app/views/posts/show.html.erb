@@ -50,8 +50,9 @@
 
       </div>
 
+      <%# 改行つけて説明文を表示 %>
       <div class="post-introduction">
-        <p><%= @post.body %></p>
+        <p><%= simple_format(@post.body) %></p>
       </div>
 
       <%# いいねボタン非同期通信 %>

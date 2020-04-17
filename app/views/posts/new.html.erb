@@ -1,17 +1,38 @@
-<h1>Posts#new</h1>
+<div class="container" id="posts-new">
 
-<% if @post.errors.any? %>
-  <% @post.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+  <h2 class="title">新規投稿</h2>
+
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= form_for(@post, local: true) do |f| %>
-  <%= f.attachment_field :before_image, id: "preview-before" %>
-  <div id="before-image"></div>
-  <%= f.attachment_field :after_image, id: "preview-after" %>
-  <div id="after-image"></div>
-  <h4>説明</h4>
-  <%= f.text_area :body %>
-  <p><%= f.submit 'Create' %></p>
-<% end %>
+    <%= form_for(@post, local: true) do |f| %>
+
+      <div class="row post-box">
+
+        <div class="col-xs-12 col-md-4 col-md-offset-3">
+          <h4>before画像</h4>
+          <div id="before-image"></div>
+          <%= f.attachment_field :before_image, id: "preview-before" %>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+          <h4>after画像</h4>
+          <div id="after-image"></div>
+          <%= f.attachment_field :after_image, id: "preview-after" %>
+        </div>
+
+      </div>
+
+      <div class="row post-box">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <h4>説明</h4>
+          <%= f.text_area :body, class: "form-control" %>
+          <p><%= f.submit '投稿' %></p>
+        </div>
+      </div>
+    <% end %>
+
+</div>
