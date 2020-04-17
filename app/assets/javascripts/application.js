@@ -37,6 +37,7 @@ function changeAfter(){
   console.log(before);
 }
 
+//投稿詳細ページのクリック動作
 function changeBefore(){
 	var after = document.getElementById('posts-after');
 	var before = document.getElementById('posts-before');
@@ -48,6 +49,7 @@ function changeBefore(){
   beforeimage.style.display = "block";
 }
 
+// 新規投稿ページの画像プレビュー動作
 $(function(){
   //fileが選択された時に発火するイベント
   $('input#preview-before').change(function(){
@@ -67,6 +69,7 @@ $(function(){
   });
 });
 
+// 新規投稿ページの画像プレビュー動作
 $(function(){
   //fileが選択された時に発火するイベント
   $('#preview-after').change(function(){
@@ -86,7 +89,5 @@ $(function(){
     fileReader.readAsDataURL(file);
   });
 });
-
-
 
 
