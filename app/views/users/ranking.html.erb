@@ -11,18 +11,17 @@
     <% @users.zip(@favorites) do |user,favorite| %>
 
       <table class="ranking-table">
-
         <tr>
 
-          <td class="ranking-item">
+          <td class="ranking-table-item">
             <%= favorite %>いいね獲得!!
           </td>
 
-          <td class="ranking-item">
+          <td class="ranking-table-item">
             <%= user.name %>
           </td>
 
-          <td class="ranking-item">
+          <td class="ranking-table-item">
             <%= link_to user_path(user.id) do %>
               <%= attachment_image_tag user, :profile_image,
                :fill, 50, 50, fallback: "noimage.png", size:'50x50', class: "profile-image" %>
@@ -30,7 +29,6 @@
           </td>
 
         </tr>
-
       </table>
 
     <% end %>
