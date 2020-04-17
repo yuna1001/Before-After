@@ -1,0 +1,25 @@
+
+.post-new{
+  position: fixed;
+  width: 100px;
+  top: 80%;
+  left: 90%;
+
+  .post-new-btn{
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+    position: relative;
+    border-radius: 50px;
+
+    .post-new-image{
+    	width: 60px;
+      position: absolute;
+      top: 20%;
+      left: 20%;
+    }
+
+  }
+
+}
