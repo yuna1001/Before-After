@@ -1,77 +1,83 @@
 #users-show-container{
-  margin-top: 100px;
 
-  .profile-image-box{
-    width: 300px;
-    margin: 0 auto;
+  .profile-container{
+    padding: 70px 0px 30px 0px;
+    background-color: #ffe4c4;
 
-    .profile-image{
-      border-radius: 150px;
+    .profile-image-box{
+      width: 300px;
+      margin: 0 auto;
+
+      .profile-image{
+        border-radius: 150px;
+      }
+
     }
 
-  }
-
-  .profile-username-box{
-    text-align: center;
-  }
-
-  .profile-edit-btn{
-    color: #fff;
-    display: block;
-    width: 130px;
-    margin: 0 auto;
-    text-align: center;
-    height: 30px;
-    line-height: 30px;
-    background-color: #f4b046;
-    text-decoration: none;
-  }
-
-  .unfollow-btn{
-    width: 130px;
-    margin: 0 auto;
-    text-align: center;
-    display: block;
-    color: #fff;
-    height: 30px;
-    line-height: 30px;
-    background-color: #f7321cdb;
-  }
-
-  .follow-btn{
-    width: 130px;
-    margin: 0 auto;
-    text-align: center;
-    display: block;
-    color: #fff;
-    height: 30px;
-    line-height: 30px;
-    background-color: #386deb;
-  }
-
-  .profile-follow-count-box{
-    display: flex;
-    margin: 0 auto;
-    width: 300px;
-
-    h4{
-      margin: 30px;
+    .profile-username-box{
+      text-align: center;
     }
 
-  }
+    .profile-edit-btn{
+      color: #fff;
+      display: block;
+      width: 130px;
+      margin: 0 auto;
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+      background-color: #f4b046;
+      text-decoration: none;
+    }
 
-  .profile-userintroduction-box{
-    width: 700px;
-    margin: 0 auto;
-    text-align: center;
+    .unfollow-btn{
+      width: 130px;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+      color: #fff;
+      height: 30px;
+      line-height: 30px;
+      background-color: #f7321cdb;
+    }
+
+    .follow-btn{
+      width: 130px;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+      color: #fff;
+      height: 30px;
+      line-height: 30px;
+      background-color: #386deb;
+    }
+
+    .profile-follow-count-box{
+      display: flex;
+      margin: 0 auto;
+      width: 300px;
+
+      h4{
+        margin: 30px;
+      }
+
+    }
+
+    .profile-userintroduction-box{
+      width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
   }
 
   .posts-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 100px 200px 30px 200px;
+    margin: 50px 200px 30px 200px;
 
+    // flexboxで最後の１行を左寄せするため空のboxを配置
     &::after{
       content:"";
       display: block;

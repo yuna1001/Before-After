@@ -1,0 +1,38 @@
+#users-followers-container{
+
+  .title-box{
+    width: 100%;
+    background-color: #ffe4c4;
+    margin-top: 50px;
+
+    .followers-logo{
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+    }
+
+  }
+
+  .followers-container{
+    margin-top: 30px;
+
+    .followers-table{
+      margin: 0 auto;
+
+      .followers-table-items{
+          width: 200px;
+          display: inline-block;
+          text-align: center;
+
+        .followers-profileimage{
+          border-radius: 30px;
+        }
+
+      }
+
+
+    }
+
+  }
+
+}

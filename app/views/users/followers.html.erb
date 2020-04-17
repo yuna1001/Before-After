@@ -1,37 +1,71 @@
-<h1>フォロワー</h1>
+<div id="users-followers-container">
 
-<%# フォロワーユーザ一覧 %>
-<% @users.each do |user| %>
+  <%# タイトルのロゴ %>
+  <div class="title-box">
+    <%= image_tag "followersuser.png", class: "followers-logo" %>
+  </div>
 
-  <table>
-    <tr>
-      <td>
-        <%= attachment_image_tag user, :profile_image, :fill, 30, 30, fallback: "noimage.png",size:'30x30' %>
-      </td>
-      <td>
-        <%= user.name %>さん
-      </td>
-      <%# カレントユーザ以外はフォローボタンを表示 %>
-      <% if user_signed_in? %>
-        <% if current_user != user %>
-          <% if current_user.following?(user) %>
-            <td>
-              <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
-                     html: { method: :delete }) do |f| %>
-                <%= f.submit "Unfollow" %>
+  <div class="followers-container">
+
+    <%# フォロワーユーザ一覧 %>
+    <% @users.each do |user| %>
+
+      <table class="followers-table">
+        <tr>
+
+          <td class="followers-table-items">
+            <%# ユーザ詳細ページへのリンク %>
+            <%= link_to user_path(user.id) do %>
+              <%= attachment_image_tag user, :profile_image,
+                 :fill, 50, 50, fallback: "noimage.png",size:'50x50', class: "followers-profileimage" %>
+            <% end %>
+          </td>
+
+          <td class="followers-table-items">
+            <%# ユーザ詳細ページへのリンク %>
+            <%= link_to user_path(user.id) do %>
+              <%= user.name %>
+            <% end %>さん
+          </td>
+
+          <%# ログイン状態でカレントユーザ以外はフォローボタンを表示 %>
+          <% if user_signed_in? %>
+
+            <% if current_user != user %>
+
+              <% if current_user.following?(user) %>
+
+                <td class="followers-table-items">
+                  <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+                         html: { method: :delete }) do |f| %>
+                    <%= f.submit "フォローを外す" %>
+                  <% end %>
+                </td>
+
+              <% else %>
+
+                <td class="followers-table-items">
+                  <%= form_for(current_user.active_relationships.build) do |f| %>
+                    <%= hidden_field_tag :followed_id, user.id %>
+                    <%= f.submit "フォローする" %>
+                  <% end %>
+                </td>
+
               <% end %>
-            </td>
-          <% else %>
-            <td>
-              <%= form_for(current_user.active_relationships.build) do |f| %>
-                <%= hidden_field_tag :followed_id, user.id %>
-                <%= f.submit "Follow" %>
-              <% end %>
-            </td>
+
+            <%# カレントユーザの場合は列幅調整の為空のtablebodyを追加 %>
+            <% else %>
+              <td class="followers-table-items">
+              </td>
+            <% end %>
+
           <% end %>
-        <% end %>
-      <% end %>
-    </tr>
-  </table>
 
-<% end %>
+        </tr>
+      </table>
+
+    <% end %>
+
+  </div>
+
+</div>

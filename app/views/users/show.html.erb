@@ -1,12 +1,12 @@
 <div id="users-show-container">
 
-  <%# successメッセージを表示 %>
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
-
   <%# プロフィール画像とユーザ名 %>
   <div class="profile-container">
+    
+    <%# successメッセージを表示 %>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
 
     <div class="profile-image-box">
       <%= attachment_image_tag @user, :profile_image,

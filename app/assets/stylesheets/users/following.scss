@@ -1,28 +1,30 @@
-#users-ranking-container{
+#users-following-container{
 
   .title-box{
     width: 100%;
-    text-align: center;
     background-color: #ffe4c4;
+    margin-top: 50px;
 
-    .title-image{
-      width: 300px;
+    .following-logo{
+      display: block;
+      margin: 0 auto;
+      width: 150px;
     }
 
   }
 
-  .ranking-container{
+  .following-container{
     margin-top: 30px;
-
-    .ranking-table{
+    
+    .following-table{
       margin: 0 auto;
 
-      .ranking-table-item{
+      .following-table-item{
         width: 200px;
         display: inline-block;
         text-align: center;
 
-        .profile-image{
+        .followers-profileimage{
           border-radius: 30px;
         }
 
