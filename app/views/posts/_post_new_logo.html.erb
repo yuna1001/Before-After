@@ -1,0 +1,11 @@
+<%# 各ページ右下に配置してある投稿ボタン %>
+
+<% if user_signed_in? %>
+  <div class="post-new">
+    <div class="post-new-btn">
+      <%= link_to new_post_path do %>
+        <%= image_tag "camera.png", class: "post-new-image" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
