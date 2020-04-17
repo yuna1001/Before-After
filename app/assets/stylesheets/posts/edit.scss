@@ -1,0 +1,21 @@
+#posts-edit{
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
+
+  .title{
+    margin: 0 auto;
+    margin-top: 90px;
+    display: block;
+    text-align: center;
+  }
+
+  .post-box{
+    margin-top: 30px;
+
+    .form-control{
+      width: 500px;
+    }
+
+  }
+
+}
