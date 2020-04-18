@@ -96,3 +96,7 @@ $(function(){
     fileReader.readAsDataURL(file);
   });
 });
+
+$(document).ready(function() {
+  $('.drawer').drawer();
+});

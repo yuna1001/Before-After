@@ -248,7 +248,6 @@ $breakpoints:(
 
       .howto-steplist-image-title{
         position: absolute;
-        z-index: 50;
         top: 0px;
         left: 0px;
         width: 100px;
@@ -293,6 +292,7 @@ $breakpoints:(
 
         @include mediaQuery-down(md) {
           line-height: 20px;
+          text-align: left;
         } 
 
       }

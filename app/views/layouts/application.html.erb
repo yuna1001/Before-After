@@ -10,13 +10,70 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <%# tippy.js テーマ %>
+    <!-- tippy.js テーマ -->
     <link rel="stylesheet"href="https://unpkg.com/tippy.js@6/animations/shift-toward-extreme.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6/themes/light-border.css">
+    <!-- drawer.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
 
   </head>
 
-  <body>
+  <body class="drawer drawer--right" >
+
+    <%# レスポンシブ対応用にハンバーガーメニューの %>
+    <header role="banner" class="hamburger-manu" >
+      <!-- ハンバーガーボタン -->
+      <button type="button" class="drawer-toggle drawer-hamburger">
+        <span class="sr-only">toggle navigation</span>
+        <span class="drawer-hamburger-icon"></span>
+      </button>
+      <!-- ナビゲーションの中身 -->
+      <nav class="drawer-nav" role="navigation">
+        <ul class="drawer-menu">
+          <% if user_signed_in? %>
+
+            <li class="mypage-listitem">
+              <%= link_to "マイページ", user_path(current_user.id) %>
+            </li>
+
+            <li class="masterranking-listitem">
+              <%= link_to "片付けマスターランキング", users_ranking_path %>
+            </li>
+
+            <li class="accountoperation-listitem">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete,
+                   class: "accountoperation-link" %>
+            </li>
+
+            <%# topページへのリンク %>
+            <li>
+              <%= link_to "このサイトについて", root_path %>
+            </li>
+
+          <% else %>
+
+            <li class="masterranking-listitem">
+              <%= link_to "片付けマスターランキング", users_ranking_path %>
+            </li>
+
+            <li class="header-accountoperation-listitem">
+              <%= link_to "新規登録", new_user_registration_path, class: "accountoperation-link" %>
+            </li>
+
+            <li class="header-accountoperation-listitem">
+              <%= link_to "ログイン", new_user_session_path, class: "accountoperation-link" %>
+            </li>
+
+            <%# topページへのリンク %>
+            <li>
+              <%= link_to "このサイトについて", root_path %>
+            </li>
+
+          <% end %>
+
+        </ul>
+      </nav>
+    </header>
     
     <header id="header">
 
@@ -129,6 +186,10 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- drawer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
 
   </body>
 
