@@ -15,5 +15,7 @@
     <% end %>
   <% end %>
 <% else %>
-  <%= post.favorites.count %>いいね
+  <div class="favarite-counter">
+    <%= post.favorites.count %>いいね
+  </div>
 <% end %>

@@ -49,6 +49,13 @@ function changeBefore(){
   beforeimage.style.display = "block";
 }
 
+// 投稿詳細ページのツールチップ(ライブラリ)
+tippy('#posts-image-before', {
+  theme: 'light-border',
+  animation: 'shift-toward-extreme',
+  content: "クリックすると画像が変わります!!",
+});
+
 // 新規投稿ページの画像プレビュー動作
 $(function(){
   //fileが選択された時に発火するイベント
@@ -89,5 +96,3 @@ $(function(){
     fileReader.readAsDataURL(file);
   });
 });
-
-
