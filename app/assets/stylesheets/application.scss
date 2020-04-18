@@ -14,10 +14,59 @@
  *= require_self
  */
 
+$smartphone_s: 320px;
+$smartphone_m: 375px;
+$smartphone_l: 425px;
+$tablet_m: 768px;
+$tablet_l: 1024px;
+
+$breakpoints:(
+  xs: $smartphone_s,
+  sm: $smartphone_m,
+  md: $smartphone_l,
+  lg: $tablet_m,
+  xl: $tablet_l
+) !default;
+
+// 小さいスクリーン優先のmixin
+@mixin mediaQuery-up($breakpoint) {
+  @media ( min-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
+// 大きいスクリーン優先のmixin
+@mixin mediaQuery-down($breakpoint) {
+  @media ( max-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
 *{
   font-family: "arial unicode ms";
   color: #2e3740;
 }
+
+.hamburger-manu{
+
+  @include mediaQuery-up(xl) {
+    display: none;
+  }  
+
+  .drawer-toggle{
+    height: 0px;
+    z-index: 100;
+    padding-top: 13px;
+  }
+
+  .mypage-listitem{
+    margin-top: 150px;
+  }
+
+}
+
+
+
 
 #header{
     
@@ -29,7 +78,7 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 50;
+    z-index: 1;
     background-color: #ee5833;
     filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.2));
 
@@ -42,6 +91,10 @@
       margin-right: 43px;
       // header内に別要素を重ねるため親要素に指定
       position: relative;
+
+      @include mediaQuery-down(xs) {
+        text-align: left;
+      }  
 
       .header-postlist-listitem{
         width: 100px;
@@ -71,6 +124,10 @@
       left: 0px;
       // 左側のずれを調整
       margin-left: -40px;
+
+      @include mediaQuery-down(lg) {
+        display: none;
+      } 
 
       .header-mypage-listitem{
         width: 70px;
@@ -111,6 +168,11 @@
       position: absolute;
       right: 200px;
       list-style: none;
+
+      @include mediaQuery-down(lg) {
+        display: none;
+      } 
+
     }
 
     .header-right-container{
@@ -119,6 +181,10 @@
       list-style: none;
       margin: 0px;
       display: flex;
+
+      @include mediaQuery-down(lg) {
+        display: none;
+      } 
 
       .header-accountoperation-listitem{
         background-color: #ece7e7;
