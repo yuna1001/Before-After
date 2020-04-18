@@ -18,7 +18,7 @@
 
   .post-container{
     width: 90%;
-    margin: 0 auto;
+    margin: 30px auto;
     display: flex;
     justify-content: center;
 
@@ -57,11 +57,13 @@
         word-break: break-all;
         margin: 0 auto;
         height: 250px;
+        margin-left: 30px;
       }
 
       .favorite-image{
         filter: brightness(0.5);
         width: 30px;
+        margin-left: 30px;
       }
 
     }
@@ -69,4 +71,6 @@
   }
 
 }
+
+
 

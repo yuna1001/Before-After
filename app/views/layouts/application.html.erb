@@ -2,11 +2,17 @@
 <html>
 
   <head>
+
     <title>BeforeAfter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%# tippy.js テーマ %>
+    <link rel="stylesheet"href="https://unpkg.com/tippy.js@6/animations/shift-toward-extreme.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6/themes/light-border.css">
+
   </head>
 
   <body>
@@ -117,8 +123,12 @@
 
     <%= yield %>
 
+    <%# tippy.js %>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </body>
 
 </html>
