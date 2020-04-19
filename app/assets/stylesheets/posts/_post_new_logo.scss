@@ -1,9 +1,46 @@
+$smartphone_s: 320px;
+$smartphone_m: 375px;
+$smartphone_l: 425px;
+$tablet_m: 768px;
+$tablet_l: 1024px;
+
+$breakpoints:(
+  xs: $smartphone_s,
+  sm: $smartphone_m,
+  md: $smartphone_l,
+  lg: $tablet_m,
+  xl: $tablet_l
+) !default;
+
+// 小さいスクリーン優先のmixin
+@mixin mediaQuery-up($breakpoint) {
+  @media ( min-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
+// 大きいスクリーン優先のmixin
+@mixin mediaQuery-down($breakpoint) {
+  @media ( max-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
 
 .post-new{
   position: fixed;
   width: 100px;
   top: 80%;
   left: 90%;
+
+  @include mediaQuery-down(lg) {
+   top: 90%;
+   left: 88%;
+  }
+
+  @include mediaQuery-down(md) {
+   top: 90%;
+   left: 85%;
+  }
 
   .post-new-btn{
     width: 100px;
@@ -13,11 +50,26 @@
     position: relative;
     border-radius: 50px;
 
+    @include mediaQuery-down(xl) {
+      width: 60px;
+      height: 60px;
+    }
+
+    @include mediaQuery-down(md) {
+      width: 40px;
+      height: 40px;
+    }
+
     .post-new-image{
     	width: 60px;
       position: absolute;
       top: 20%;
       left: 20%;
+
+      @include mediaQuery-down(xl) {
+        width: 60%;
+      }
+
     }
 
   }
