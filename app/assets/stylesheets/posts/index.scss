@@ -1,3 +1,31 @@
+$smartphone_s: 320px;
+$smartphone_m: 375px;
+$smartphone_l: 425px;
+$tablet_m: 768px;
+$tablet_l: 1024px;
+
+$breakpoints:(
+  xs: $smartphone_s,
+  sm: $smartphone_m,
+  md: $smartphone_l,
+  lg: $tablet_m,
+  xl: $tablet_l
+) !default;
+
+// 小さいスクリーン優先のmixin
+@mixin mediaQuery-up($breakpoint) {
+  @media ( min-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
+// 大きいスクリーン優先のmixin
+@mixin mediaQuery-down($breakpoint) {
+  @media ( max-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
 #posts-index{
 
   .posts-box{
@@ -5,6 +33,17 @@
     flex-wrap: wrap;
     margin: 30px 200px 30px 200px;
     justify-content: space-between;
+
+    @include mediaQuery-down(xl) {
+      width: 50%;
+      margin: 0 auto;
+    } 
+
+    @include mediaQuery-down(md) {
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+    } 
 
     &::after{
       content:"";
@@ -17,7 +56,21 @@
       height: 300px;
       position: relative;
       margin-bottom: 60px;
-      
+
+      @include mediaQuery-down(xl) {
+        width: 100%;
+        height: auto;
+      }
+
+      .posts-box-item-before{
+
+        @include mediaQuery-down(xl) {
+          width: 100%;
+          display: block;
+        }
+
+      } 
+
       .posts-box-item-after{
         opacity: 0;
         transition: 0.5s;
@@ -25,9 +78,16 @@
         left: 0px;
         top: 0px;
 
+        @include mediaQuery-down(xl) {
+          width: 100%;
+          display: block;
+          opacity: 1;
+        }        
+
         &:hover{
           opacity: 1;
         }
+
       }
 
       .profile-image{
@@ -38,6 +98,10 @@
         transition: 0.5s;
         border-radius: 30px;
         filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+
+        @include mediaQuery-down(xl) {
+          opacity: 1;
+        } 
 
         &:hover{
           border-radius: 0px;
@@ -53,7 +117,12 @@
         transition: 0.3s;
         font-weight: bold;
         color: #fff;
-        text-shadow: 1px 2px 3px #808080; 
+        text-shadow: 1px 2px 3px #808080;
+
+        @include mediaQuery-down(xl) {
+          opacity: 1;
+        } 
+
       }
 
       .favorite-counter{
@@ -62,7 +131,12 @@
         left: 85%;
         color: #fff;
         text-shadow: 1px 2px 3px #808080;
-        opacity: 0; 
+        opacity: 0;
+
+        @include mediaQuery-down(xl) {
+          opacity: 1;
+        } 
+        
       }
 
       .favorite-image{
@@ -73,6 +147,10 @@
         transition: 0.1s;
         filter: drop-shadow(8px 8px 8px rgba(0,0,0,0.6));
         width: 20px;
+
+        @include mediaQuery-down(xl) {
+          opacity: 1;
+        }
 
         &:hover{
           width: 25px;
