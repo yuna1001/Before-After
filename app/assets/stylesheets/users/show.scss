@@ -1,3 +1,31 @@
+$smartphone_s: 320px;
+$smartphone_m: 375px;
+$smartphone_l: 425px;
+$tablet_m: 768px;
+$tablet_l: 1024px;
+
+$breakpoints:(
+  xs: $smartphone_s,
+  sm: $smartphone_m,
+  md: $smartphone_l,
+  lg: $tablet_m,
+  xl: $tablet_l
+) !default;
+
+// 小さいスクリーン優先のmixin
+@mixin mediaQuery-up($breakpoint) {
+  @media ( min-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
+// 大きいスクリーン優先のmixin
+@mixin mediaQuery-down($breakpoint) {
+  @media ( max-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
 #users-show-container{
 
   .profile-container{
@@ -9,8 +37,17 @@
       margin: 0 auto;
       text-align: center;
 
+      @include mediaQuery-down(md) {
+        width: 50%;
+      }
+
       .profile-image{
         border-radius: 150px;
+
+        @include mediaQuery-down(md) {
+          width: 100%;
+        }
+
       }
 
     }
@@ -68,6 +105,11 @@
       width: 700px;
       margin: 0 auto;
       text-align: center;
+
+      @include mediaQuery-down(md) {
+        width: 90%;
+      } 
+
     }
 
   }
@@ -77,6 +119,11 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 50px 200px 30px 200px;
+
+    @include mediaQuery-down(md) {
+      width: 90%;
+      margin: 50px auto;
+    }    
 
     // flexboxで最後の１行を左寄せするため空のboxを配置
     &::after{
@@ -91,12 +138,29 @@
       position: relative;
       margin-bottom: 60px;
 
+      @include mediaQuery-down(lg) {
+        width: 100%;
+        height: auto;
+      }
+
+      .posts-item-beforeimage{
+
+        @include mediaQuery-down(lg) {
+          width: 100%;
+        }
+
+      }
+
       .posts-item-afterimage{
         opacity: 0;
         transition: 0.5s;
         position: absolute;
         left: 0px;
         top: 0px;
+
+        @include mediaQuery-down(lg) {
+          width: 100%;
+        }
 
         &:hover{
           opacity: 1;
@@ -111,6 +175,10 @@
         transition: 0.5s;
         border-radius: 30px;
         filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+
+        @include mediaQuery-down(xl) {
+          opacity: 1;
+        }
 
         &:hover{
           border-radius: 0px;
@@ -127,6 +195,11 @@
         font-weight: bold;
         color: #fff;
         text-shadow: 1px 2px 3px #808080; 
+
+        @include mediaQuery-down(xl) {
+          opacity: 1;
+        }
+
       } 
 
       .favorite-counter{
@@ -136,6 +209,11 @@
         color: #fff;
         text-shadow: 1px 2px 3px #808080;
         opacity: 0; 
+
+        @include mediaQuery-down(xl) {
+          opacity: 1;
+        }
+
       }
 
       .favorite-image{
@@ -146,6 +224,10 @@
         transition: 0.1s;
         filter: drop-shadow(8px 8px 8px rgba(0,0,0,0.6));
         width: 20px;
+
+        @include mediaQuery-down(xl) {
+          opacity: 1;
+        }
 
         &:hover{
           width: 25px;

@@ -17,12 +17,12 @@
 
     <%# before画像(クリックで表示変更させる) %>
     <div class="post-image", id="posts-image-before" onclick="changeAfter()" >
-      <%= attachment_image_tag @post, :before_image, :fill, 500, 500 %>
+      <%= attachment_image_tag @post, :before_image, :fill, 500, 500, class: "post-image-item" %>
     </div>
 
     <%# after画像(クリックで表示変更させる) %>
     <div class="post-image", id="posts-image-after" onclick="changeBefore()" style= "display: none;" >
-      <%= attachment_image_tag @post, :after_image, :fill, 500, 500 %>
+      <%= attachment_image_tag @post, :after_image, :fill, 500, 500, class: "post-image-item" %>
     </div>
 
     <div class="post-right-container">

@@ -1,3 +1,31 @@
+$smartphone_s: 320px;
+$smartphone_m: 375px;
+$smartphone_l: 425px;
+$tablet_m: 768px;
+$tablet_l: 1024px;
+
+$breakpoints:(
+  xs: $smartphone_s,
+  sm: $smartphone_m,
+  md: $smartphone_l,
+  lg: $tablet_m,
+  xl: $tablet_l
+) !default;
+
+// 小さいスクリーン優先のmixin
+@mixin mediaQuery-up($breakpoint) {
+  @media ( min-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
+// 大きいスクリーン優先のmixin
+@mixin mediaQuery-down($breakpoint) {
+  @media ( max-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
 #users-followers-container{
 
   .title-box{
@@ -23,6 +51,10 @@
           width: 200px;
           display: inline-block;
           text-align: center;
+
+        @include mediaQuery-down(xl) {
+          display: table-cell;
+        }
 
         .followers-profileimage{
           border-radius: 30px;
