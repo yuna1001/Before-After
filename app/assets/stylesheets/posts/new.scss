@@ -1,6 +1,39 @@
+$smartphone_s: 320px;
+$smartphone_m: 375px;
+$smartphone_l: 425px;
+$tablet_m: 768px;
+$tablet_l: 1024px;
+
+$breakpoints:(
+  xs: $smartphone_s,
+  sm: $smartphone_m,
+  md: $smartphone_l,
+  lg: $tablet_m,
+  xl: $tablet_l
+) !default;
+
+// 小さいスクリーン優先のmixin
+@mixin mediaQuery-up($breakpoint) {
+  @media ( min-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
+// 大きいスクリーン優先のmixin
+@mixin mediaQuery-down($breakpoint) {
+  @media ( max-width: #{map-get($breakpoints, $breakpoint)} ) {
+    @content;
+  }
+}
+
 #posts-new{
   @import "bootstrap-sprockets";
   @import "bootstrap";
+
+    @include mediaQuery-down(lg) {
+      width: 90%;
+      margin: 0 auto;
+    }
 
   .title{
     margin: 0 auto;
@@ -14,6 +47,11 @@
 
     .form-control{
       width: 500px;
+
+      @include mediaQuery-down(md) {
+        width: 100%;
+      }
+
     }
 
   }
