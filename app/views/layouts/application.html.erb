@@ -3,9 +3,11 @@
 
   <head>
 
-    <title>BeforeAfter</title>
+    <title>BeforeAfter | 片付けマスターになろう!!</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag('favicon.ico') %>
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,7 +22,7 @@
 
   <body class="drawer drawer--right" >
 
-    <%# レスポンシブ対応用にハンバーガーメニューの %>
+    <%# レスポンシブ対応用にハンバーガーメニュー %>
     <header role="banner" class="hamburger-manu" >
       <!-- ハンバーガーボタン -->
       <button type="button" class="drawer-toggle drawer-hamburger">
