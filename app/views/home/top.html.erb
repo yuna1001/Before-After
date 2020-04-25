@@ -5,23 +5,35 @@
     <p><%= flash[:notice] %></p>
   <% end %>
 
-  <div class="top-box-logo">
-    <div class="logo">
-      <%= render 'layouts/logo'%>
+  <div class="top-title-box">
+
+    <div class="title-logo">
+      <%= image_tag "logo.png", class: "top-logo" %>
     </div>
+    <p class="top-text-lg">
+      Before-Afterは片付けのモチベーションをUPさせるサイトです。
+    </p>
     <div id="about-logo" onclick="scrollabout()">
       <%= image_tag "about-logo.png", class: "top-box-about-logo" %>
     </div>
     <div id="howto-logo" onclick="scrollhowto()">
       <%= image_tag "howto-logo.png", class: "top-box-howto-logo" %>
     </div>
+
   </div> 
+
 </div>
 
+<p class="top-text-md">
+  Before-Afterは<br />片付けのモチベーションをUPさせるサイトです。
+</p>
+
 <div class="about-box" id="about-scroll" >
+
   <div class="about-box-title">
     <%= image_tag "about-logo.png", class: "about-box-title-logo" %>
   </div>
+
   <div class="about-body">
     <p>
       Before-Afterは、片付け前と片付け後の画像を投稿し共有し合うサイトです。
@@ -38,6 +50,7 @@
       このような悩みを持っている方はぜひ<span>投稿してみましょう!!</span>
     </p>
   </div>
+
 </div>
 
 <div class="howto-box">
