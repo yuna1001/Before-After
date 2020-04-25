@@ -32,43 +32,44 @@
       <!-- ナビゲーションの中身 -->
       <nav class="drawer-nav" role="navigation">
         <ul class="drawer-menu">
+
           <% if user_signed_in? %>
 
-            <li class="mypage-listitem">
-              <%= link_to "マイページ", user_path(current_user.id) %>
+            <li class="list-item">
+              <%= link_to "マイページ", user_path(current_user.id), class: "list-text" %>
             </li>
 
-            <li class="masterranking-listitem">
-              <%= link_to "片付けマスターランキング", users_ranking_path %>
+            <li class="list-item">
+              <%= link_to "片付けマスターランキング", users_ranking_path, class: "list-text" %>
             </li>
 
-            <li class="accountoperation-listitem">
+            <li class="list-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete,
-                   class: "accountoperation-link" %>
+                  class: "list-text" %>
             </li>
 
             <%# topページへのリンク %>
-            <li>
-              <%= link_to "このサイトについて", root_path %>
+            <li class="list-item">
+              <%= link_to "このサイトについて", root_path, class: "list-text" %>
             </li>
 
           <% else %>
 
-            <li class="masterranking-listitem">
-              <%= link_to "片付けマスターランキング", users_ranking_path %>
+            <li class="list-item">
+              <%= link_to "片付けマスターランキング", users_ranking_path, class: "list-text" %>
             </li>
 
-            <li class="header-accountoperation-listitem">
-              <%= link_to "新規登録", new_user_registration_path, class: "accountoperation-link" %>
+            <li class="list-item">
+              <%= link_to "新規登録", new_user_registration_path, class: "list-text" %>
             </li>
 
-            <li class="header-accountoperation-listitem">
-              <%= link_to "ログイン", new_user_session_path, class: "accountoperation-link" %>
+            <li class="list-item">
+              <%= link_to "ログイン", new_user_session_path, class: "list-text" %>
             </li>
 
             <%# topページへのリンク %>
-            <li>
-              <%= link_to "このサイトについて", root_path %>
+            <li class="list-item">
+              <%= link_to "このサイトについて", root_path, class: "list-text" %>
             </li>
 
           <% end %>

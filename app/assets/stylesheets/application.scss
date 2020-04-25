@@ -17,14 +17,16 @@
 $smartphone_s: 320px;
 $smartphone_m: 375px;
 $smartphone_l: 425px;
-$tablet_m: 768px;
+$tablet_s: 768px;
+$tablet_m: 769px;
 $tablet_l: 1024px;
 
 $breakpoints:(
   xs: $smartphone_s,
   sm: $smartphone_m,
   md: $smartphone_l,
-  lg: $tablet_m,
+  lg: $tablet_s,
+  ll: $tablet_m,
   xl: $tablet_l
 ) !default;
 
@@ -49,7 +51,7 @@ $breakpoints:(
 
 .hamburger-manu{
 
-  @include mediaQuery-up(xl) {
+  @include mediaQuery-up(ll) {
     display: none;
   }  
 
@@ -59,8 +61,24 @@ $breakpoints:(
     padding-top: 13px;
   }
 
-  .mypage-listitem{
-    margin-top: 150px;
+  .drawer-nav{
+    background-color: #ffe4c4;
+
+    .drawer-menu{
+      margin-top: 50px;
+
+      .list-item{
+        padding: 10px;
+
+        .list-text{
+          text-decoration: none;
+          text-shadow: 2px 2px 2px #fff;
+        }
+
+      }
+
+    }
+
   }
 
 }
