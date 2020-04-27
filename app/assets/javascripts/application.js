@@ -24,6 +24,7 @@ function scrollhowto(){
   $('html, body').animate({scrollTop:1176});
 }
 
+
 //投稿詳細ページのクリック動作
 function changeAfter(){
 	var before = document.getElementById('posts-before');
@@ -37,6 +38,7 @@ function changeAfter(){
   console.log(before);
 }
 
+
 //投稿詳細ページのクリック動作
 function changeBefore(){
 	var after = document.getElementById('posts-after');
@@ -49,12 +51,14 @@ function changeBefore(){
   beforeimage.style.display = "block";
 }
 
+
 // 投稿詳細ページのツールチップ(ライブラリ)
 tippy('#posts-image-before', {
   theme: 'light-border',
   animation: 'shift-toward-extreme',
   content: "クリックすると画像が変わります!!",
 });
+
 
 // 新規投稿ページの画像プレビュー動作
 $(function(){
@@ -75,6 +79,7 @@ $(function(){
     fileReader.readAsDataURL(file);
   });
 });
+
 
 // 新規投稿ページの画像プレビュー動作
 $(function(){
@@ -97,6 +102,35 @@ $(function(){
   });
 });
 
+
+// ハンバーガーメニュー(ライブラリ)
 $(document).ready(function() {
   $('.drawer').drawer();
 });
+
+
+// headerテキスト選択時の動作
+var param = window.location.search;
+var newpost = document.getElementById('activ-new');
+var ranking = document.getElementById('activ-ranking');
+var timeline = document.getElementById('activ-timeline');
+
+var url = location.href;
+
+  if (url.match(/posts/)){
+    timeline.style.textShadow = "2px 2px 2px #000";  
+  }
+
+  if ( param.match(/new/)){
+    newpost.style.textShadow = "2px 2px 2px #000";
+    timeline.style.textShadow = "none";
+  }
+
+  if ( param.match(/ranking/)){
+    ranking.style.textShadow = "2px 2px 2px #000";
+    timeline.style.textShadow = "none";  
+  }
+
+
+
+

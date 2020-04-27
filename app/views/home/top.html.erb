@@ -1,11 +1,11 @@
 <div class="top-box">
 
-  <%# successメッセージを表示 %>
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
-
   <div class="top-title-box">
+    
+    <%# successメッセージを表示 %>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
 
     <div class="title-logo">
       <%= image_tag "logo.png", class: "top-logo" %>

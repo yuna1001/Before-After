@@ -113,7 +113,7 @@ $breakpoints:(
         width: 500px;
         word-break: break-all;
         margin: 0 auto;
-        height: 250px;
+        height: auto;
         margin-left: 30px;
 
         @include mediaQuery-down(xl) {

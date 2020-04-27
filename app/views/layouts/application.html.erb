@@ -1,20 +1,20 @@
 <!DOCTYPE html>
+
 <html>
 
   <head>
 
     <title>BeforeAfter | 片付けマスターになろう!!</title>
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag('favicon.ico') %>
-
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <!-- tippy.js テーマ -->
     <link rel="stylesheet"href="https://unpkg.com/tippy.js@6/animations/shift-toward-extreme.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6/themes/light-border.css">
+
     <!-- drawer.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
 
@@ -44,8 +44,7 @@
             </li>
 
             <li class="list-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete,
-                  class: "list-text" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list-text" %>
             </li>
 
             <%# topページへのリンク %>
@@ -87,14 +86,14 @@
 
           <%# 中央の各投稿一覧ページへのリンク %>
           <ul class="header-front-container">
-            <li class="header-postlist-listitem"><%= link_to "タイムライン",
-                posts_path, class: "header-postlist-link" %>
+            <li class="header-postlist-listitem" id="">
+              <%= link_to "タイムライン", posts_path, class: "header-postlist-link", id: "activ-timeline" %>
             </li>
-            <li class="header-postlist-listitem">
-              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link" %>
+            <li class="header-postlist-listitem" id="">
+              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link", id: "activ-ranking" %>
             </li>
-            <li class="header-postlist-listitem">
-              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link" %>
+            <li class="header-postlist-listitem" id="">
+              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link", id: "activ-new" %>
             </li>
           </ul>
 
@@ -122,8 +121,7 @@
           <%# 右側のログアウトリンク %>
           <ul class="header-right-container">
             <li class="header-accountoperation-listitem">
-              <%= link_to  destroy_user_session_path, method: :delete,
-                   class: "header-accountoperation-link" do %>
+              <%= link_to  destroy_user_session_path, method: :delete, class: "header-accountoperation-link" do %>
                 <%= image_tag "logout.png", class: "header-accountoperation-image" %>
               <% end %>
             </li>
@@ -139,10 +137,10 @@
           <%# 中央の各投稿一覧ページへのリンク %>
           <ul class="header-front-container">
             <li class="header-postlist-listitem">
-              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link" %>
+              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link", id: "activ-ranking" %>
             </li>
             <li class="header-postlist-listitem">
-              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link" %>
+              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link", id: "activ-new" %>
             </li>
           </ul>
 
