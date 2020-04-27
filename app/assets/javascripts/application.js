@@ -27,28 +27,33 @@ function scrollhowto(){
 
 //投稿詳細ページのクリック動作
 function changeAfter(){
+
 	var before = document.getElementById('posts-before');
 	var after = document.getElementById('posts-after');
   var beforeimage = document.getElementById('posts-image-before');
   var afterimage = document.getElementById('posts-image-after');
+
   before.style.display = "none";
   after.style.display = "block";
   beforeimage.style.display = "none";
   afterimage.style.display = "block";
-  console.log(before);
+
 }
 
 
 //投稿詳細ページのクリック動作
 function changeBefore(){
+
 	var after = document.getElementById('posts-after');
 	var before = document.getElementById('posts-before');
   var afterimage = document.getElementById('posts-image-after');
   var beforeimage = document.getElementById('posts-image-before');
+
   after.style.display = "none";
   before.style.display = "block";
   afterimage.style.display = "none";
   beforeimage.style.display = "block";
+
 }
 
 
@@ -109,28 +114,40 @@ $(document).ready(function() {
 });
 
 
-// headerテキスト選択時の動作
-var param = window.location.search;
-var newpost = document.getElementById('activ-new');
-var ranking = document.getElementById('activ-ranking');
-var timeline = document.getElementById('activ-timeline');
+// headeのメニュー選択時の動作
+$(document).ready(function() {
 
-var url = location.href;
+  var newpost = document.getElementById('activ-new');
+  var ranking = document.getElementById('activ-ranking');
+  var timeline = document.getElementById('activ-timeline');
 
-  if (url.match(/posts/)){
-    timeline.style.textShadow = "2px 2px 2px #000";  
-  }
+  var url = window.location.href;
+  var param = window.location.search;
+  var pathname = window.location.pathname;
 
-  if ( param.match(/new/)){
-    newpost.style.textShadow = "2px 2px 2px #000";
-    timeline.style.textShadow = "none";
-  }
+    if ( param.match(/new/)){
+      newpost.style.textShadow = "2px 2px 2px #000";
+    }
 
-  if ( param.match(/ranking/)){
-    ranking.style.textShadow = "2px 2px 2px #000";
-    timeline.style.textShadow = "none";  
-  }
+    if ( param.match(/ranking/)){
+      ranking.style.textShadow = "2px 2px 2px #000";
+    }
 
+    if ( url.match(/posts/)){
+      timeline.style.textShadow = "2px 2px 2px #000";
+    }
 
+    if ( pathname.match(/[1-9]/)){
+      timeline.style.textShadow = "none";  
+    }
 
+    if ( param.match(/new/)){
+      timeline.style.textShadow = "none";  
+    }
+
+    if ( param.match(/ranking/)){
+      timeline.style.textShadow = "none";  
+    }
+
+});
 
