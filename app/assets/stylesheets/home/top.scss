@@ -50,9 +50,16 @@ $breakpoints:(
     margin-bottom: 10px;
   } 
 
+  .flash{
+    position: absolute;
+  }
+
   .title-logo{
+    position: absolute;
+    top: 40px;
+    right: 0%;
+    left: 0%;
     text-align: center;
-    padding-top: 40px;
 
       @include mediaQuery-down(xl) {
        padding-top: 150px;
@@ -211,7 +218,6 @@ $breakpoints:(
         }
 
       }
-
 
     }
 
