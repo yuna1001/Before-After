@@ -59,9 +59,9 @@
       </h4>
     </div>
 
-    <%# ユーザの紹介文 %>
+    <%# ユーザの紹介文(改行有り)%>
     <div class="profile-userintroduction-box">
-      <p><%= @user.body %></p>
+      <p><%= simple_format(@user.body) %></p>
     </div>
 
   </div>
