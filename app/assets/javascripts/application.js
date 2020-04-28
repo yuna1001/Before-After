@@ -117,9 +117,9 @@ $(document).ready(function() {
 // headeのメニュー選択時の動作
 $(document).ready(function() {
 
-  var newpost = document.getElementById('activ-new');
-  var ranking = document.getElementById('activ-ranking');
-  var timeline = document.getElementById('activ-timeline');
+  var newpost = document.getElementById('active-new');
+  var ranking = document.getElementById('active-ranking');
+  var timeline = document.getElementById('active-timeline');
 
   var url = window.location.href;
   var param = window.location.search;

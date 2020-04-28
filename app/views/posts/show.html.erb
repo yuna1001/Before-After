@@ -56,8 +56,13 @@
       </div>
 
       <%# いいねボタン非同期通信 %>
-      <div id="favorites_buttons_<%= @post.id %>">
+      <div id="favorites_buttons_<%= @post.id %>" class="favorites-container">
         <%= render partial: 'favorites/favorite', locals: { post: @post} %>
+      </div>
+
+      <%# 投稿日 %>
+      <div class="">
+        <%= @post.created_at.strftime('%Y/%m/%d') %>
       </div>
     
     </div>

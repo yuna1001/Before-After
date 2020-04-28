@@ -23,7 +23,7 @@
   <body class="drawer drawer--right" >
 
     <%# レスポンシブ対応用にハンバーガーメニュー %>
-    <header role="banner" class="hamburger-manu" >
+    <header role="banner" class="hamburger-manu">
       <!-- ハンバーガーボタン -->
       <button type="button" class="drawer-toggle drawer-hamburger">
         <span class="sr-only">toggle navigation</span>
@@ -87,13 +87,13 @@
           <%# 中央の各投稿一覧ページへのリンク %>
           <ul class="header-front-container">
             <li class="header-postlist-listitem" id="">
-              <%= link_to "タイムライン", posts_path, class: "header-postlist-link", id: "activ-timeline" %>
+              <%= link_to "タイムライン", posts_path, class: "header-postlist-link", id: "active-timeline" %>
             </li>
             <li class="header-postlist-listitem" id="">
-              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link", id: "activ-ranking" %>
+              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link", id: "active-ranking" %>
             </li>
             <li class="header-postlist-listitem" id="">
-              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link", id: "activ-new" %>
+              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link", id: "active-new" %>
             </li>
           </ul>
 
@@ -137,10 +137,10 @@
           <%# 中央の各投稿一覧ページへのリンク %>
           <ul class="header-front-container">
             <li class="header-postlist-listitem">
-              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link", id: "activ-ranking" %>
+              <%= link_to "人気投稿", posts_path(ranking: "params"), class: "header-postlist-link", id: "active-ranking" %>
             </li>
             <li class="header-postlist-listitem">
-              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link", id: "activ-new" %>
+              <%= link_to "新着", posts_path(new: "params"), class: "header-postlist-link", id: "active-new" %>
             </li>
           </ul>
 

@@ -31,7 +31,7 @@ $breakpoints:(
   .posts-box{
     display: flex;
     flex-wrap: wrap;
-    margin: 30px 200px 30px 200px;
+    margin: 30px 150px 30px 150px;
     justify-content: space-between;
 
     @include mediaQuery-down(xl) {
