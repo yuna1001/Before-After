@@ -1,11 +1,14 @@
+circleci-project-setup
 version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2 
 
+
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
+       circleci-project-setup
     executor: ruby/default
     steps:
       - checkout
@@ -13,3 +16,4 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
+
