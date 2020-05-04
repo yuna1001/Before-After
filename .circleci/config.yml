@@ -1,18 +1,19 @@
-version: 2
+circleci-project-setup
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2 
+
 
 jobs:
   test:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
-    working_directory: ~/repo
+       circleci-project-setup
+    executor: ruby/default
     steps:
       - checkout
-      - run: 
-          name: Run test
-          command: bundle exec rspec spec/ --format documentation
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
 
-workflows:
-  version: 2
-  workflows:
-    jobs:
-      - test
