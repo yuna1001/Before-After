@@ -5,8 +5,10 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
         environment:
+          BUNDLER_VERSION: 2.0.2
           RAILS_ENV: test
-      - image: circleci/mysql:5.6
+          POSTGRES_HOST: 127.0.0.1
+      - image: circleci/mysql:5.7.22
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
@@ -15,11 +17,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: bundler update
-          command: bundle update --bundler
-      - run:
           name: bundle install
-          command: bundle install
+          command: |
+            gem install bundler -v 2.0.2
+            bundle install --
       - run:
           name: データベースの起動を待機
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
