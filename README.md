@@ -43,6 +43,8 @@
   - Vagrant
   - VirtualBox
     - CentOS
+- CI環境
+  - CircleCi（push後自動的にテスト実行）
 
 ### 使用技術一覧
 
@@ -53,7 +55,7 @@
   - レスポンシブ対応
 - Rails
   - CRUD処理
-  - devise(ユーザ認証用)
+  - devise/gem(ユーザ認証)
   - refile/gem(画像アップロード)
   - adminフラグ
   - デバック
