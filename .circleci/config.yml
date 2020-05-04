@@ -1,8 +1,18 @@
 version: 2
+
 jobs:
-  build:
+  test:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/ruby:2.6.3-stretch-node
+    working_directory: ~/repo
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run: 
+          name: Run test
+          command: bundle exec rspec spec/ --format documentation
+
+workflows:
+  version: 2
+  workflows:
+    jobs:
+      - test
