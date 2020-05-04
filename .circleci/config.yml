@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: circleci/ruby:2.5.7-stretch-node
         environment:
           BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
